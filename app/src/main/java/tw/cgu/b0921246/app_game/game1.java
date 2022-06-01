@@ -50,8 +50,8 @@ public class game1 extends AppCompatActivity implements DialogInterface.OnClickL
     public void ture(View view) {
         point.setText(String.valueOf(count[1]));
         Intent it1= new Intent(this, game2.class);
-        String data=point.getText().toString();
-        it1.putExtra("分數",data);
+        //String data=point.getText().toString();
+        //it1.putExtra("分數",data);
         startActivity(it1);
     }
     public void giveup(View view){
