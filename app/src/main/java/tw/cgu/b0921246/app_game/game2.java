@@ -12,32 +12,24 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 
-
 public class game2 extends AppCompatActivity implements DialogInterface.OnClickListener, ImageView.OnClickListener {
 
-    //int[]count={0,20,40,60,80,100};
     TextView txv,point2;
-    //private int count[];
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game2);
         txv = findViewById(R.id.textView3);
         point2=findViewById(R.id.point2);
-        //count=game1.count;
         int[] image = {R.id.i1, R.id.i2, R.id.i3, R.id.i4, R.id.i5, R.id.i6,
                 R.id.i7, R.id.i8, R.id.i9};
         for (int imageview : image) {
             findViewById(imageview).setOnClickListener(this);
         }
-        //String point1=getIntent().getStringExtra("分數");
-        //point2.setText(point1);
-        //Intent it=new Intent(this,game1.class);
-        //it.putExtra("分數",count);
-        //startActivityForResult(it);
         Intent it=getIntent();
-        int num=it.getIntExtra("分數",0);
-        point2.setText(num);
+        String data=it.getStringExtra("分數");
+        point2.setText(data);
+
         new AlertDialog.Builder(this)
                 .setMessage("這關可以點擊物件會讓物件消失，接著來找出要找的東西吧!")
                 .setCancelable(false)
@@ -48,11 +40,6 @@ public class game2 extends AppCompatActivity implements DialogInterface.OnClickL
                 .setNegativeButton("回到上一個遊戲 ",this)
                 .show();
 
-        /*count= Integer.parseInt(String.valueOf(findViewById(R.id.point)));
-        if (count>=20){
-            point2.setText(String.valueOf(count=20));
-        }else if (count==0)
-            point2.setText(String.valueOf(count));*/
     }
 
     @Override
@@ -97,11 +84,15 @@ public class game2 extends AppCompatActivity implements DialogInterface.OnClickL
             visible = View.GONE;
             findViewById(R.id.i8).setVisibility(visible);
         } else if (view.getId() == R.id.i9) {
+            Intent it=getIntent();
+            String data=it.getStringExtra("分數");
+            int data2=Integer.parseInt(data)+20;
+            point2.setText(String.valueOf(data2));
 
             Intent it1 = new Intent(this, game3.class);
+            String data3=point2.getText().toString();
+            it1.putExtra("分數",data3);
             startActivity(it1);
-            return;
-
         }
     }
     public void goback(View view){
@@ -109,9 +100,14 @@ public class game2 extends AppCompatActivity implements DialogInterface.OnClickL
         startActivity(it1);
     }
     public void giveup(View view){
-        Intent it2 = new Intent(this, game3.class);
-        //point.setText(count[0]);
-        //it2.putExtra("分數",point.getText());
-        startActivity(it2);
+        Intent it=getIntent();
+        String data=it.getStringExtra("分數");
+        int data2=Integer.parseInt(data);
+        point2.setText(String.valueOf(data2));
+
+        Intent it1 = new Intent(this, game3.class);
+        String data3=point2.getText().toString();
+        it1.putExtra("分數",data3);
+        startActivity(it1);
     }
 }

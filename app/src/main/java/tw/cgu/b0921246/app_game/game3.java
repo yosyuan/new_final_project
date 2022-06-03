@@ -9,10 +9,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 public class game3 extends AppCompatActivity implements DialogInterface.OnClickListener, ImageView.OnClickListener {
 
     Button btn3,btn2;
+    TextView point3;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,15 +26,19 @@ public class game3 extends AppCompatActivity implements DialogInterface.OnClickL
         }
         btn3=findViewById(R.id.btn3);
         btn2=findViewById(R.id.btn2);
+        point3=findViewById(R.id.point3);
         new AlertDialog.Builder(this)
-                .setMessage("歡迎來到第三關\n這關跟第二關遊戲方式一樣，快來找出要找的東西吧!")
+                .setMessage("這關跟第二關遊戲方式一樣，快來找出要找的東西吧!")
                 .setCancelable(false)
-                .setTitle("恭喜你答對！")
+                .setTitle("歡迎來到第三關！")
                 .setIcon(android.R.drawable.btn_star_big_off)
                 .setPositiveButton("準備好了",this)
                 .setNeutralButton("回到遊戲主頁",this)
                 .setNegativeButton("回到上一個遊戲 ",this)
                 .show();
+        Intent it=getIntent();
+        String data=it.getStringExtra("分數");
+        point3.setText(data);
     }
 
     @Override
@@ -86,13 +92,31 @@ public class game3 extends AppCompatActivity implements DialogInterface.OnClickL
             //                    .setNeutralButton("回到遊戲主頁", this)
             //                    .setNegativeButton("回到上一個遊戲 ",this)
             //                    .show();
-            Intent it1 = new Intent(this, game4.class);
-            startActivity(it1);
+            Intent it=getIntent();
+            String data=it.getStringExtra("分數");
+            int data3=Integer.parseInt(data)+20;
+            point3.setText(String.valueOf(data3));
 
+            Intent it1 = new Intent(this, game4.class);
+            String data4=point3.getText().toString();
+            //String data2=point2.getText().toString();
+            it1.putExtra("分數",data4);
+            startActivity(it1);
         }
     }
     public void goback(View v){
         Intent it1 = new Intent(this, MainActivity.class);
+        startActivity(it1);
+    }
+    public void giveup(View view){
+        Intent it=getIntent();
+        String data=it.getStringExtra("分數");
+        int data3=Integer.parseInt(data);
+        point3.setText(String.valueOf(data3));
+
+        Intent it1 = new Intent(this, game4.class);
+        String data4=point3.getText().toString();
+        it1.putExtra("分數",data4);
         startActivity(it1);
     }
 

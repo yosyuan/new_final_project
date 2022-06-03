@@ -6,10 +6,139 @@
     android:layout_height="match_parent"
     tools:context=".game4">
 
+    <TextView
+        android:id="@+id/point4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.477"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.962" />
+
+    <Button
+        android:id="@+id/btn6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="76dp"
+        android:background="#55B1FD"
+        android:onClick="goback"
+        android:text="回主頁"
+        android:textColor="@android:color/background_light"
+        android:textSize="24sp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btn2"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btn7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="76dp"
+        android:background="#55B1FD"
+        android:onClick="giveup"
+        android:text="放棄"
+        android:textColor="@android:color/background_light"
+        android:textSize="24sp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:id="@+id/iii7"
+        android:layout_width="wrap_content"
+        android:layout_height="440dp"
+        android:layout_marginTop="128dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/linearLayout2"
+        app:srcCompat="@drawable/background4_1" />
+
+    <ImageView
+        android:id="@+id/iii6"
+        android:layout_width="97dp"
+        android:layout_height="98dp"
+        android:onClick="ture"
+        app:layout_constraintBottom_toTopOf="@+id/iii7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iii7"
+        app:srcCompat="@drawable/animal" />
+
+    <ImageView
+        android:id="@+id/iii5"
+        android:layout_width="194dp"
+        android:layout_height="190dp"
+        app:layout_constraintBottom_toTopOf="@+id/iii2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.926"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iii4"
+        app:layout_constraintVertical_bias="0.279"
+        app:srcCompat="@drawable/animal5" />
+
+    <ImageView
+        android:id="@+id/iii4"
+        android:layout_width="222dp"
+        android:layout_height="225dp"
+        app:layout_constraintBottom_toTopOf="@+id/iii7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iii7"
+        app:srcCompat="@drawable/animal2" />
+
+    <ImageView
+        android:id="@+id/iii3"
+        android:layout_width="194dp"
+        android:layout_height="225dp"
+        app:layout_constraintBottom_toTopOf="@+id/iii7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iii6"
+        app:layout_constraintVertical_bias="0.629"
+        app:srcCompat="@drawable/animal3" />
+
+    <ImageView
+        android:id="@+id/iii2"
+        android:layout_width="186dp"
+        android:layout_height="255dp"
+        app:layout_constraintBottom_toTopOf="@+id/iii7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.071"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iii7"
+        app:layout_constraintVertical_bias="0.379"
+        app:srcCompat="@drawable/animal4" />
+
+    <ImageView
+        android:id="@+id/iii1"
+        android:layout_width="189dp"
+        android:layout_height="172dp"
+        app:layout_constraintBottom_toTopOf="@+id/iii4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.927"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iii4"
+        app:layout_constraintVertical_bias="0.566"
+        app:srcCompat="@drawable/animal6" />
+
     <LinearLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="152dp"
+        tools:layout_editor_absoluteY="183dp">
 
         <TextView
             android:id="@+id/textView8"
@@ -26,10 +155,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="7dp"
-            android:text="達達到了圖書館在想晚上要喝甚麼，浮現很多種懷舊招牌，選出他想喝的七星汽水吧!"
+            android:text="達達想到一個笑話，甚麼動物最喜歡黏在牆上？"
             android:textSize="24sp"
             app:layout_constraintBottom_toTopOf="@+id/imageView"
             app:layout_constraintStart_toStartOf="@+id/textView5"
             app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,6 +6,18 @@
     android:layout_height="match_parent"
     tools:context=".game3">
 
+    <TextView
+        android:id="@+id/point3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.477"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.962" />
+
     <Button
         android:id="@+id/btn3"
         android:layout_width="wrap_content"
@@ -15,10 +27,10 @@
         android:layout_marginBottom="40dp"
         android:background="#55B1FD"
         android:onClick="goback"
-        android:text="回到主頁面"
+        android:text="回主頁"
         android:textColor="@android:color/background_light"
         android:textSize="24sp"
-        android:visibility="invisible"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btn2"
         app:layout_constraintHorizontal_bias="0.0"
@@ -31,7 +43,8 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="40dp"
         android:background="#55B1FD"
-        android:text="提示"
+        android:onClick="giveup"
+        android:text="放棄"
         android:textColor="@android:color/background_light"
         android:textSize="24sp"
         android:visibility="visible"
@@ -95,6 +108,7 @@
         android:layout_height="111dp"
         android:layout_marginStart="16dp"
         android:layout_marginBottom="308dp"
+        android:onClick="onClick"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/sign6" />

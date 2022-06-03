@@ -70,8 +70,8 @@ public class game5 extends AppCompatActivity implements DialogInterface.OnClickL
         point5.setText(String.valueOf(data5));
 
         Intent it1 = new Intent(this, finalpoint.class);
-        //String data6=point5.getText().toString();
-        //it1.putExtra("分數",data6);
+        String data6=point5.getText().toString();
+        it1.putExtra("分數",data6);
         startActivity(it1);
     }
     @Override
