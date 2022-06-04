@@ -77,13 +77,13 @@
             android:layout_marginBottom="7dp"
             android:text="達達到了圖書館在想晚上要喝甚麼，浮現很多種懷舊招牌，選出他想喝的七星汽水吧!"
             android:textSize="24sp"
-            app:layout_constraintBottom_toTopOf="@+id/imageView"
+            app:layout_constraintBottom_toTopOf="@+id/tt1"
             app:layout_constraintStart_toStartOf="@+id/textView5"
             app:layout_constraintTop_toBottomOf="@+id/textView5" />
     </LinearLayout>
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/tt1"
         android:layout_width="wrap_content"
         android:layout_height="429dp"
         android:layout_marginTop="8dp"
@@ -176,9 +176,9 @@
         android:layout_width="182dp"
         android:layout_height="156dp"
         android:layout_marginTop="192dp"
-        app:layout_constraintEnd_toStartOf="@+id/imageView"
+        app:layout_constraintEnd_toStartOf="@+id/tt1"
         app:layout_constraintHorizontal_bias="0.723"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintStart_toEndOf="@+id/tt1"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/sign2" />
 

@@ -24,11 +24,11 @@ public class game1 extends AppCompatActivity implements DialogInterface.OnClickL
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game1);
-        txv=findViewById(R.id.textView);
+        txv=findViewById(R.id.ttxv6);
         point=findViewById(R.id.point);
         image=findViewById(R.id.imageView23);
-        int[] image = {R.id.imageView1, R.id.imageView2, R.id.imageView3, R.id.imageView4, R.id.imageView5,
-        R.id.imageView6,R.id.imageView7,R.id.imageView8,R.id.imageView9,R.id.imageView10,R.id.imageView11};
+        int[] image = {R.id.imageView1, R.id.tt2, R.id.tt3, R.id.imageView4, R.id.tt5,
+        R.id.tt6,R.id.imageView7,R.id.imageView8,R.id.imageView9,R.id.imageView10,R.id.imageView11};
         for (int imageview : image) {
             findViewById(imageview).setOnTouchListener(this);
         }

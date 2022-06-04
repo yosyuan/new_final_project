@@ -187,7 +187,7 @@
             android:layout_marginBottom="7dp"
             android:text="達達想到一個笑話，甚麼動物最喜歡黏在牆上？"
             android:textSize="24sp"
-            app:layout_constraintBottom_toTopOf="@+id/imageView"
+            app:layout_constraintBottom_toTopOf="@+id/tt1"
             app:layout_constraintStart_toStartOf="@+id/textView5"
             app:layout_constraintTop_toBottomOf="@+id/textView5" />
 

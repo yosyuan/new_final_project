@@ -8,7 +8,7 @@
     tools:context=".game1">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/ttxv6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="第一關"
@@ -23,8 +23,8 @@
         android:layout_height="wrap_content"
         android:text="最近SPYxFAMILY很紅，達達很喜歡這部動畫，請幫他找出真正的阿妮雅"
         android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintStart_toStartOf="@+id/ttxv6"
+        app:layout_constraintTop_toBottomOf="@+id/ttxv6" />
 
     <ImageView
         android:id="@+id/imageView11"
@@ -32,7 +32,7 @@
         android:layout_height="244dp"
         android:layout_marginTop="32dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/ttxv6"
         app:srcCompat="@drawable/aniya2" />
 
     <ImageView
@@ -75,22 +75,22 @@
         app:srcCompat="@drawable/aniya2" />
 
     <ImageView
-        android:id="@+id/imageView6"
+        android:id="@+id/tt6"
         android:layout_width="139dp"
         android:layout_height="244dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView5"
+        app:layout_constraintBottom_toBottomOf="@+id/tt5"
         app:layout_constraintStart_toStartOf="@+id/imageView11"
-        app:layout_constraintTop_toTopOf="@+id/imageView5"
+        app:layout_constraintTop_toTopOf="@+id/tt5"
         app:srcCompat="@drawable/aniya2" />
 
     <ImageView
-        android:id="@+id/imageView5"
+        android:id="@+id/tt5"
         android:layout_width="139dp"
         android:layout_height="246dp"
         android:layout_marginStart="96dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView2"
-        app:layout_constraintStart_toStartOf="@+id/imageView6"
-        app:layout_constraintTop_toTopOf="@+id/imageView2"
+        app:layout_constraintBottom_toBottomOf="@+id/tt2"
+        app:layout_constraintStart_toStartOf="@+id/tt6"
+        app:layout_constraintTop_toTopOf="@+id/tt2"
         app:layout_constraintVertical_bias="0.473"
         app:srcCompat="@drawable/aniya2" />
 
@@ -100,7 +100,7 @@
         android:layout_height="212dp"
         android:layout_marginStart="108dp"
         android:layout_marginTop="120dp"
-        app:layout_constraintStart_toStartOf="@+id/imageView3"
+        app:layout_constraintStart_toStartOf="@+id/tt3"
         app:layout_constraintTop_toTopOf="@+id/imageView9"
         app:srcCompat="@drawable/aniya2" />
 
@@ -116,7 +116,7 @@
         app:srcCompat="@drawable/taniya5" />
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/tt3"
         android:layout_width="143dp"
         android:layout_height="208dp"
         android:layout_marginStart="88dp"
@@ -126,12 +126,12 @@
         app:srcCompat="@drawable/aniya2" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/tt2"
         android:layout_width="143dp"
         android:layout_height="208dp"
         android:layout_marginStart="96dp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView1"
-        app:layout_constraintStart_toStartOf="@+id/imageView5"
+        app:layout_constraintStart_toStartOf="@+id/tt5"
         app:layout_constraintTop_toTopOf="@+id/imageView1"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/aniya2" />
@@ -143,7 +143,7 @@
         android:layout_marginStart="292dp"
         android:layout_marginBottom="116dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/imageView6"
+        app:layout_constraintStart_toStartOf="@+id/tt6"
         app:srcCompat="@drawable/aniya2" />
 
     <TextView

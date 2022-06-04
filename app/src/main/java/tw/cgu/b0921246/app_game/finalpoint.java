@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 public class finalpoint extends AppCompatActivity {
@@ -18,5 +19,9 @@ public class finalpoint extends AppCompatActivity {
         Intent it=getIntent();
         String data=it.getStringExtra("分數");
         point6.setText("總分："+data);
+    }
+    public void sure(View v){
+        Intent it1 = new Intent(this, bet.class);
+        startActivity(it1);
     }
 }

@@ -13,13 +13,13 @@
         android:text="第二關"
         android:textSize="45sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/textView4"
+        app:layout_constraintEnd_toStartOf="@+id/ttxv4"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/ttxv4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="達達在爬好漢坡時遇到好多隻貓，請找出眼睛最大的貓"
@@ -53,12 +53,12 @@
         android:text="回主頁"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button"
+        app:layout_constraintEnd_toStartOf="@+id/tbutton"
         app:layout_constraintHorizontal_bias="0.067"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/tbutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="56dp"
@@ -71,14 +71,14 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/tt3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="44dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView4"
+        app:layout_constraintTop_toTopOf="@+id/ttxv4"
         app:srcCompat="@drawable/background2_2" />
 
     <ImageView
@@ -107,8 +107,8 @@
         android:layout_height="198dp"
         android:layout_marginStart="84dp"
         android:layout_marginTop="144dp"
-        app:layout_constraintStart_toStartOf="@+id/imageView3"
-        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        app:layout_constraintStart_toStartOf="@+id/tt3"
+        app:layout_constraintTop_toBottomOf="@+id/ttxv4"
         app:srcCompat="@drawable/cat7" />
 
     <ImageView
@@ -127,7 +127,7 @@
         android:layout_height="117dp"
         android:layout_marginTop="4dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        app:layout_constraintTop_toBottomOf="@+id/ttxv4"
         app:srcCompat="@drawable/cat6" />
 
     <ImageView

@@ -6,24 +6,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-public class MainActivity extends AppCompatActivity {
+public class Main3Activity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main3);
     }
-    public void sure(View v){
-
-        Intent it1=new Intent(this,Main2Activity.class);
-        startActivity(it1);
-    }
-    public void trybet(View v){
-
-        Intent it1=new Intent(this,bet.class);
-        startActivity(it1);
-    }
-    public void tryguess(View v){
+    public void go(View v){
 
         Intent it1=new Intent(this,guess.class);
         startActivity(it1);
