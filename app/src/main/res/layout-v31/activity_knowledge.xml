@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/root"
+    android:id="@+id/root"   
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".knowledge">
@@ -34,20 +34,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/subject" />
 
-    <Button
-        android:id="@+id/total"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="total"
-        android:text="分數結算"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.507"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.754" />
-
     <ListView
         android:id="@+id/lv"
         android:layout_width="wrap_content"
@@ -65,11 +51,10 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="100dp"
         android:text="分數：0"
-        android:textColor="@android:color/darker_gray"
+        android:textColor="@android:color/system_accent1_1000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lv"
-        tools:ignore="NewApi" />
+        app:layout_constraintTop_toBottomOf="@+id/lv" />
 </androidx.constraintlayout.widget.ConstraintLayout>

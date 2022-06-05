@@ -2,11 +2,13 @@ package tw.cgu.b0921246.app_game;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -16,6 +18,7 @@ import java.util.Random;
 public class knowledge extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
     TextView s, q, txvp;
+    Button total;
     Random x = new Random();
     int n =x.nextInt(5); //0~4
     int a=0, points=0;
@@ -93,6 +96,7 @@ public class knowledge extends AppCompatActivity implements AdapterView.OnItemCl
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_knowledge);
 
+        total=findViewById(R.id.total);
         s=(TextView) findViewById(R.id.subject);
         q=(TextView) findViewById(R.id.question);
         txvp=(TextView) findViewById(R.id.txvp);
@@ -119,9 +123,10 @@ public class knowledge extends AppCompatActivity implements AdapterView.OnItemCl
                 (a==4&&((c == 0 && i == 2) || (c == 1 && i == 0) || (c == 2 && i == 1) || (c == 3 && i == 2) || (c == 4 && i == 0)))){
             sbar.setText("答對了！");
             sbar.show();
-            points+=10;
+            points+=20;
             String p= Integer.toString(points);
             txvp.setText("分數："+p);
+
         }
         else
             sbar.setText("答錯了！");
@@ -134,6 +139,15 @@ public class knowledge extends AppCompatActivity implements AdapterView.OnItemCl
             adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,answers[a][m]);
             lv.setAdapter(adapter);
             c=m;
+
         }
+        total.setVisibility(View.VISIBLE);
+
+    }
+    public void total(View v){
+        Intent it1 = new Intent(this, Main6Activity.class);
+        String data6=Integer.toString(points);
+        it1.putExtra("分數",data6);
+        startActivity(it1);
     }
 }

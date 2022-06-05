@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
     }
     public void tryguess(View v){
 
-        Intent it1=new Intent(this,guess.class);
+        Intent it1=new Intent(this,knowledge.class);
         startActivity(it1);
     }
 }
