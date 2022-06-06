@@ -16,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class game5 extends AppCompatActivity implements DialogInterface.OnClickListener, ImageView.OnTouchListener {
 
     private GlobalClass gv;
+    ImageView imageView;
     Button btn8,btn9;
     TextView point5;
     private float x,y;
@@ -28,6 +29,7 @@ public class game5 extends AppCompatActivity implements DialogInterface.OnClickL
         btn8=findViewById(R.id.btn8);
         btn9=findViewById(R.id.btn9);
         point5=findViewById(R.id.point5);
+        imageView=findViewById(R.id.e12);
         gv = (GlobalClass)getApplicationContext();
 
         int[] image = {R.id.e1, R.id.e2, R.id.e3, R.id.e4, R.id.e5,R.id.e6,R.id.e7,R.id.e8,R.id.e9,
@@ -105,7 +107,6 @@ public class game5 extends AppCompatActivity implements DialogInterface.OnClickL
 
         Intent it1 = new Intent(this, finalpoint.class);
         String data6=point5.getText().toString();
-        //String data2=point2.getText().toString();
         it1.putExtra("分數",data6);
         gv = (GlobalClass)getApplicationContext();
         gv.setTotalPoints(Integer.parseInt(data6));

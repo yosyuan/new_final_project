@@ -3,10 +3,6 @@
     xmlns:dist="http://schemas.android.com/apk/distribution"
     package="tw.cgu.b0921246.app_game">
 
-    <dist:module dist:instant="true" />
-
-    <uses-permission android:name="android.permission.VIBRATE" />
-
     <application
         android:name=".GlobalClass"
         android:allowBackup="true"
@@ -15,6 +11,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity
+            android:name=".color_one2"
+            android:exported="false" />
+        <activity
+            android:name=".color_second1"
+            android:exported="false" />
+        <activity
+            android:name=".color_one1"
+            android:exported="false" />
+        <activity
+            android:name=".color"
+            android:exported="false" />
         <activity android:name=".Main8Activity" />
         <activity android:name=".Main7Activity" />
         <activity android:name=".Main6Activity" />
@@ -36,7 +44,8 @@
         <activity android:name=".game3" />
         <activity android:name=".game2" />
         <activity android:name=".game1" />
-        <activity android:name=".MainActivity"
+        <activity
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -45,5 +54,9 @@
             </intent-filter>
         </activity>
     </application>
+
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <dist:module dist:instant="true" />
 
 </manifest>

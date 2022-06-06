@@ -1,5 +1,6 @@
 package tw.cgu.b0921246.app_game;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -30,8 +31,8 @@ public class Main7Activity extends AppCompatActivity {
         }
         else{
             //這裡要連到王和涂的遊戲
-            //Intent it1=new Intent(this,color.class);
-            //startActivity(it1);
+            Intent it1=new Intent(this,color.class);
+            startActivity(it1);
            // Intent it1=new Intent(this,Main8Activity.class);
             //startActivity(it1);
         }
