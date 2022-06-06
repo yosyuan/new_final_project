@@ -185,7 +185,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="7dp"
-            android:text="達達想到一個笑話，甚麼動物最喜歡黏在牆上？"
+            android:text="達達從夢中驚醒，原來是月亮同學打電話給他。月亮想找他一起去賭博場玩，於是達達到了停車場，卻看到一片散落的玩具，請幫達達找出他的機車。"
             android:textSize="24sp"
             app:layout_constraintBottom_toTopOf="@+id/tt1"
             app:layout_constraintStart_toStartOf="@+id/textView5"

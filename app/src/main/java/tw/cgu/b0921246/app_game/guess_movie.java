@@ -1,7 +1,5 @@
 package tw.cgu.b0921246.app_game;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -11,8 +9,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 public class guess_movie extends AppCompatActivity implements DialogInterface.OnClickListener {
 
+    private GlobalClass gv;
     EditText input;
     Button help,confirm,next,goback,tryagain,go;
     TextView clue,score,title,answer,end;
@@ -145,6 +146,11 @@ public class guess_movie extends AppCompatActivity implements DialogInterface.On
         startActivity(it);
     }
     public void go (View v){
+        gv = (GlobalClass)getApplicationContext();
+        gv.setIdiomPoints(point);
+        int k=gv.getTotalPoints();
+        k+=point;
+        gv.setTotalPoints(k);
         Intent it1=new Intent(this,Main4Activity.class);
         startActivity(it1);
     }

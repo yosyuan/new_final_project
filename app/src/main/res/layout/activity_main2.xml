@@ -18,4 +18,13 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/story" />
+
+    <TextView
+        android:id="@+id/txv7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="在一個悠閒的午後，達達在宿舍看動漫，突然驚覺已經期末了，不可以再繼續看動漫了！於是他決定去圖書館讀書..."
+        android:textSize="24sp"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="273dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

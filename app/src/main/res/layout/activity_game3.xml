@@ -75,7 +75,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="7dp"
-            android:text="達達到了圖書館在想晚上要喝甚麼，浮現很多種懷舊招牌，選出他想喝的七星汽水吧!"
+            android:text="達達到了圖書館，還沒翻開書就呼呼大睡，夢裡浮現許多懷舊招牌，選出他想喝的七星汽水吧!"
             android:textSize="24sp"
             app:layout_constraintBottom_toTopOf="@+id/tt1"
             app:layout_constraintStart_toStartOf="@+id/textView5"

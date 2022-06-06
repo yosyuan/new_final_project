@@ -21,7 +21,7 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="最近SPYxFAMILY很紅，達達很喜歡這部動畫，請幫他找出真正的阿妮雅"
+        android:text="請幫達達找出真正的阿妮雅，他才能安心的出門。"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="@+id/ttxv6"
         app:layout_constraintTop_toBottomOf="@+id/ttxv6" />

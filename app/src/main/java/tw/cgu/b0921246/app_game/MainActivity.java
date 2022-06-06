@@ -1,10 +1,10 @@
 package tw.cgu.b0921246.app_game;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -25,7 +25,13 @@ public class MainActivity extends AppCompatActivity {
     }
     public void tryguess(View v){
 
+        Intent it1=new Intent(this,guess.class);
+        startActivity(it1);
+    }
+    public void tryknowedge(View v){
+
         Intent it1=new Intent(this,knowledge.class);
         startActivity(it1);
     }
+
 }

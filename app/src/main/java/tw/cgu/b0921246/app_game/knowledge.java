@@ -1,7 +1,5 @@
 package tw.cgu.b0921246.app_game;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -15,18 +13,12 @@ import android.widget.Toast;
 
 import java.util.Random;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 public class knowledge extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
-    TextView s, q, txvp;
-    Button total;
-    Random x = new Random();
-    int n =x.nextInt(5); //0~4
-    int a=0, points=0;
-    int c;
-    //  String p= Integer.toString(points);
-    Toast sbar;
-    ListView lv;
-    ArrayAdapter<String> adapter;
+
+
     String[] subjects = {"地理","語文","科學","魔法","藝術"};
     String[][] questions = {
             {"世界上最大的平原是？",
@@ -91,12 +83,23 @@ public class knowledge extends AppCompatActivity implements AdapterView.OnItemCl
                     {"淘金記","摩登時代","紅樓金粉"}, //2
                     {"吳卓源","徐佳瑩","艾怡良"}} //0
     };
+    TextView s, q, txvp;
+    Button next;
+    Random x = new Random();
+    int n =x.nextInt(5); //0~4
+    int a=0;
+    static int points=0;
+    int c;
+    //  String p= Integer.toString(points);
+    Toast sbar;
+    ListView lv;
+    ArrayAdapter<String> adapter;
+    private GlobalClass gv;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_knowledge);
-
-        total=findViewById(R.id.total);
+        next=(Button) findViewById(R.id.nextpage);
         s=(TextView) findViewById(R.id.subject);
         q=(TextView) findViewById(R.id.question);
         txvp=(TextView) findViewById(R.id.txvp);
@@ -109,6 +112,7 @@ public class knowledge extends AppCompatActivity implements AdapterView.OnItemCl
         lv.setAdapter(adapter);
         lv.setOnItemClickListener(this);
         sbar=Toast.makeText(this,"",Toast.LENGTH_SHORT);
+
         //sbar = Snackbar.make (findViewById(R.id.root),"",Snackbar.LENGTH_SHORT);
 
     }
@@ -128,9 +132,10 @@ public class knowledge extends AppCompatActivity implements AdapterView.OnItemCl
             txvp.setText("分數："+p);
 
         }
-        else
+        else {
             sbar.setText("答錯了！");
             sbar.show();
+        }
         a+=1;
         if(a<=4){
             s.setText(subjects[a]);
@@ -139,15 +144,20 @@ public class knowledge extends AppCompatActivity implements AdapterView.OnItemCl
             adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,answers[a][m]);
             lv.setAdapter(adapter);
             c=m;
-
         }
-        total.setVisibility(View.VISIBLE);
-
+        else
+            next.setVisibility(View.VISIBLE);
     }
-    public void total(View v){
-        Intent it1 = new Intent(this, Main6Activity.class);
-        String data6=Integer.toString(points);
-        it1.putExtra("分數",data6);
+
+    public void nextpage(View v){
+        gv = (GlobalClass)getApplicationContext();
+        gv.setKnowledgePoints(points);
+        int k=gv.getTotalPoints();
+        k+=points;
+        gv.setTotalPoints(k);
+        Intent it1=new Intent(this,Main6Activity.class);
         startActivity(it1);
+        /*String data6=Integer.toString(points);
+        it1.putExtra("分數",data6);*/
     }
 }

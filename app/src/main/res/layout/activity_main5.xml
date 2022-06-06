@@ -6,6 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".Main5Activity">
 
+    <TextView
+        android:id="@+id/p4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="22dp"
+        android:layout_marginEnd="34dp"
+        android:text="points："
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <Button
         android:id="@+id/sure5"
         android:layout_width="wrap_content"
@@ -23,10 +34,12 @@
         android:id="@+id/textView16"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="餐廳場故事內容"
+        android:layout_marginTop="352dp"
+        android:text="達達和月亮來到了西門町的高級鐵板燒，每樣菜達達都吃得津津有味..."
+        android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/sure3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
