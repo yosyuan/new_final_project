@@ -4,27 +4,49 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/usuallyback"
     tools:context=".Main2Activity">
 
     <Button
         android:id="@+id/sure2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="192dp"
+        android:background="@color/purple_200"
         android:onClick="game1"
-        android:text="確定"
+        android:text="前往第一關!"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/story" />
+        app:layout_constraintTop_toBottomOf="@+id/txv7"
+        app:layout_constraintVertical_bias="0.285" />
+
+    <ImageView
+        android:id="@+id/imageView20"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="39dp"
+        android:layout_marginTop="49dp"
+        android:layout_marginEnd="39dp"
+        android:layout_marginBottom="17dp"
+        app:layout_constraintBottom_toTopOf="@+id/txv7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/dermitory2" />
 
     <TextView
         android:id="@+id/txv7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="303dp"
+        android:layout_height="170dp"
+        android:layout_marginBottom="156dp"
+        android:background="@color/white"
         android:text="在一個悠閒的午後，達達在宿舍看動漫，突然驚覺已經期末了，不可以再繼續看動漫了！於是他決定去圖書館讀書..."
         android:textSize="24sp"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="273dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

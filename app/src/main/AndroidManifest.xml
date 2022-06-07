@@ -12,6 +12,21 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".LastPage"
+            android:exported="false" />
+        <activity
+            android:name=".color_finalscore"
+            android:exported="false" />
+        <activity
+            android:name=".color_second3"
+            android:exported="false" />
+        <activity
+            android:name=".color_one3"
+            android:exported="false" />
+        <activity
+            android:name=".color_second2"
+            android:exported="false" />
+        <activity
             android:name=".color_one2"
             android:exported="false" />
         <activity

@@ -8,6 +8,7 @@ public class GlobalClass extends Application {
     private int betPoints = 0;
     private int idiomPoints = 0;
     private int knowledgePoints = 0;
+    private int prise = 0;
     private int colorPoints = 0;
 
     public void setTotalPoints(int points){
@@ -50,6 +51,13 @@ public class GlobalClass extends Application {
         return knowledgePoints;
     }
 
+    public void setPrise(int prise){
+        this.prise = prise;
+    }
+
+    public int getPrise(){
+        return prise;
+    }
     public void setColorPoints(int points){
         this.colorPoints = points;
     }

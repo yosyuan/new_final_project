@@ -18,6 +18,9 @@ public class MainActivity extends AppCompatActivity {
         Intent it1=new Intent(this,Main2Activity.class);
         startActivity(it1);
     }
+    public  void exit(View v){
+        finish();
+    }
     public void trybet(View v){
 
         Intent it1=new Intent(this,bet.class);

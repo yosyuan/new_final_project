@@ -107,6 +107,7 @@ public class bet3 extends AppCompatActivity implements TextWatcher, View.OnClick
                     int k=gv.getTotalPoints();
                     k+=points;
                     gv.setTotalPoints(k);
+                    gv.setBetPoints(points);
                   //  findViewById(R.id.bomb).setVisibility(View.GONE);
                   //  findViewById(R.id.boom).setVisibility(View.VISIBLE);
                     go.setVisibility(View.VISIBLE);

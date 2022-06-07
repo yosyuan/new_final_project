@@ -5,66 +5,73 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/dadaback"
     tools:context=".MainActivity">
 
     <Button
         android:id="@+id/sure"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="76dp"
+        android:layout_marginTop="27dp"
+        android:layout_marginEnd="69dp"
+        android:backgroundTint="@color/purple_200"
         android:onClick="sure"
-        android:text="確定"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/trybet" />
+        android:text="開始"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="@+id/trybet"
+        app:layout_constraintStart_toStartOf="@+id/tryknowedge"
+        app:layout_constraintTop_toBottomOf="@+id/tryknowedge" />
 
     <Button
         android:id="@+id/trycolor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:onClick="trycolor"
         android:text="TRYCOLOR"
-        app:layout_constraintBottom_toTopOf="@+id/tryguess"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/tryguess"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/tryguess"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="13dp"
+        android:layout_marginBottom="263dp"
         android:onClick="tryguess"
         android:text="tryguess"
-        app:layout_constraintBottom_toTopOf="@+id/trybet"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/trycolor" />
 
     <Button
         android:id="@+id/tryknowedge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:onClick="tryknowedge"
         android:text="Tryknowedge"
-        app:layout_constraintBottom_toTopOf="@+id/trybet"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.826" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/trybet"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/trybet"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="20dp"
         android:onClick="trybet"
         android:text="Trybet"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/tryknowedge"
+        app:layout_constraintTop_toBottomOf="@+id/tryguess" />
+
+    <Button
+        android:id="@+id/button7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="exit"
+        android:text="退出遊戲"
+        tools:layout_editor_absoluteX="89dp"
+        tools:layout_editor_absoluteY="630dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

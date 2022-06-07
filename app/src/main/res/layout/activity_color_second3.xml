@@ -2,15 +2,16 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/layout"
+    android:id="@+id/layout3"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bgr"
+    android:onClick="onClick"
     android:visibility="visible"
-    tools:context=".color_second1">
+    tools:context=".color_second3">
 
     <TextView
-        android:id="@+id/txv"
+        android:id="@+id/txv3"
         android:layout_width="164dp"
         android:layout_height="63dp"
         android:layout_marginTop="124dp"
@@ -22,19 +23,19 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/confirm"
+        android:id="@+id/confirm3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:onClick="confirm"
+        android:onClick="confirm3"
         android:text="確定"
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/answer" />
+        app:layout_constraintTop_toBottomOf="@+id/answer3" />
 
     <EditText
-        android:id="@+id/answer"
+        android:id="@+id/answer3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="64dp"
@@ -43,10 +44,10 @@
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txv" />
+        app:layout_constraintTop_toBottomOf="@+id/txv3" />
 
     <TextView
-        android:id="@+id/end"
+        android:id="@+id/end3"
         android:layout_width="169dp"
         android:layout_height="59dp"
         android:layout_marginStart="11dp"
@@ -57,31 +58,31 @@
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/confirm" />
+        app:layout_constraintTop_toBottomOf="@+id/confirm3" />
 
     <Button
-        android:id="@+id/next"
+        android:id="@+id/next3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="73dp"
-        android:onClick="next"
+        android:onClick="next3"
         android:text="下一關"
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/end" />
+        app:layout_constraintTop_toBottomOf="@+id/end3" />
 
     <Button
-        android:id="@+id/giveup1"
+        android:id="@+id/giveup3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="giveup1"
+        android:onClick="giveup3"
         android:text="我放棄"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.891"
+        app:layout_constraintHorizontal_bias="0.916"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/next"
-        app:layout_constraintVertical_bias="0.0"
-        tools:visibility="visible" />
+        app:layout_constraintTop_toBottomOf="@+id/next3"
+        app:layout_constraintVertical_bias="0.363"
+        tools:visibility="invisible" />
 </androidx.constraintlayout.widget.ConstraintLayout>

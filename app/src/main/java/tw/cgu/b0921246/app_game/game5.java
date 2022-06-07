@@ -110,6 +110,7 @@ public class game5 extends AppCompatActivity implements DialogInterface.OnClickL
         it1.putExtra("分數",data6);
         gv = (GlobalClass)getApplicationContext();
         gv.setTotalPoints(Integer.parseInt(data6));
+        gv.setFindPoints(Integer.parseInt(data6));
         startActivity(it1);
     }
 }

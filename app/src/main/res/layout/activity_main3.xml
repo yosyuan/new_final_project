@@ -10,9 +10,11 @@
         android:id="@+id/sure3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="192dp"
+        android:layout_marginBottom="136dp"
+        android:background="@color/purple_200"
         android:onClick="go"
-        android:text="確定"
+        android:text="前往下一關"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -21,15 +23,17 @@
 
     <TextView
         android:id="@+id/textView14"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="314dp"
+        android:layout_height="115dp"
+        android:background="@color/white"
         android:text="老闆：你們以為那麼容易就能吃到免費的晚餐嗎？哈哈哈哈！先過我這關再說吧！"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/sure3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.881" />
 
     <TextView
         android:id="@+id/p2"
