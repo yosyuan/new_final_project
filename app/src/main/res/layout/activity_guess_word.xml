@@ -7,39 +7,21 @@
     android:background="@drawable/back9"
     tools:context=".guess_word">
 
-    <ImageView
-        android:id="@+id/picword1"
+    <Button
+        android:id="@+id/next4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/confirm"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:onClick="next"
+        android:text="放棄"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@+id/help"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.391"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.776"
-        app:srcCompat="@drawable/word1" />
-
-    <EditText
-        android:id="@+id/input"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="110dp"
-        android:layout_marginBottom="8dp"
-        android:background="@android:color/white"
-        android:ems="10"
-        android:hint="輸入答案"
-        android:inputType="text"
-        android:singleLine="true"
-        android:textColor="@android:color/black"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.473" />
+        app:layout_constraintHorizontal_bias="0.803"
+        app:layout_constraintStart_toEndOf="@+id/help"
+        app:layout_constraintTop_toTopOf="@+id/help"
+        app:layout_constraintVertical_bias="0.467" />
 
     <Button
         android:id="@+id/go"
@@ -71,21 +53,6 @@
         app:layout_constraintStart_toEndOf="@+id/input"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.475" />
-
-    <TextView
-        android:id="@+id/clue"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        android:textColor="@android:color/white"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.646" />
 
     <Button
         android:id="@+id/help"
@@ -134,48 +101,55 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.905" />
 
-    <TextView
-        android:id="@+id/score"
+    <Button
+        android:id="@+id/tryagain11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="目前得分:0分"
+        android:background="#E3F4FE"
+        android:onClick="tryagain"
+        android:text="再試一次"
         android:textColor="@android:color/black"
-        android:textSize="24sp"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.915"
+        app:layout_constraintHorizontal_bias="0.848"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.054" />
+        app:layout_constraintVertical_bias="0.906" />
 
-    <TextView
-        android:id="@+id/title"
-        android:layout_width="wrap_content"
+    <EditText
+        android:id="@+id/input"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="110dp"
         android:layout_marginBottom="8dp"
-        android:text="成語題:0/5"
+        android:background="@android:color/white"
+        android:ems="10"
+        android:hint="輸入答案"
+        android:inputType="text"
+        android:singleLine="true"
         android:textColor="@android:color/black"
-        android:textSize="24sp"
+        android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.152"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.065" />
+        app:layout_constraintVertical_bias="0.473" />
 
-    <TextView
-        android:id="@+id/answer"
+    <ImageView
+        android:id="@+id/picword1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:textColor="@android:color/white"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/help"
+        app:layout_constraintBottom_toTopOf="@+id/confirm"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.391"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/input"
-        app:layout_constraintVertical_bias="0.267" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.776"
+        app:srcCompat="@drawable/word1" />
 
     <ImageView
         android:id="@+id/picword2"
@@ -238,6 +212,64 @@
         app:srcCompat="@drawable/word5" />
 
     <TextView
+        android:id="@+id/clue"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.646" />
+
+    <TextView
+        android:id="@+id/score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="目前得分:0分"
+        android:textColor="@android:color/black"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.915"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.054" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="成語題:0/5"
+        android:textColor="@android:color/black"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.152"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.065" />
+
+    <TextView
+        android:id="@+id/answer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/help"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/input"
+        app:layout_constraintVertical_bias="0.267" />
+
+    <TextView
         android:id="@+id/end"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -251,20 +283,4 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.273" />
-
-    <Button
-        android:id="@+id/tryagain11"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="#E3F4FE"
-        android:onClick="tryagain"
-        android:text="再試一次"
-        android:textColor="@android:color/black"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.848"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.906" />
 </androidx.constraintlayout.widget.ConstraintLayout>

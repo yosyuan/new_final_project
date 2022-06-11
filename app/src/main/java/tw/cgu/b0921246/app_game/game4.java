@@ -1,10 +1,8 @@
 package tw.cgu.b0921246.app_game;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -13,8 +11,13 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+
 public class game4 extends AppCompatActivity implements DialogInterface.OnClickListener, ImageView.OnTouchListener{
 
+    private GlobalClass gv;
+    MediaPlayer player,clickB,clickC;
     Button btn6,btn7;
     TextView point4;
     private float x,y;
@@ -23,6 +26,9 @@ public class game4 extends AppCompatActivity implements DialogInterface.OnClickL
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game4);
+        gv = (GlobalClass)getApplicationContext();
+        player = gv.getPlayer();
+        player.start();
         int[] image = {R.id.iii1, R.id.iii2, R.id.iii3, R.id.iii4, R.id.iii5};
         for (int imageview : image) {
             findViewById(imageview).setOnTouchListener(this);
@@ -50,19 +56,28 @@ public class game4 extends AppCompatActivity implements DialogInterface.OnClickL
     public void onClick(DialogInterface dialogInterface, int i) {
         if (i==DialogInterface.BUTTON_POSITIVE){
         }else if (i==DialogInterface.BUTTON_NEUTRAL){
+            player.release();
             Intent it1=new Intent(this,MainActivity.class);
             startActivity(it1);
         }else if(i==DialogInterface.BUTTON_NEGATIVE){
+            player.release();
             Intent it1=new Intent(this,game3.class);
             startActivity(it1);
         }
     }
 
     public void goback(View v){
+        clickB = MediaPlayer.create(this,R.raw.click);
+        clickB.start();
+        player.release();
         Intent it1 = new Intent(this, MainActivity.class);
         startActivity(it1);
     }
     public void giveup(View view){
+        clickB = MediaPlayer.create(this,R.raw.click);
+        clickB.start();
+        gv = (GlobalClass)getApplicationContext();
+        gv.setPlayer(player);
         Intent it=getIntent();
         String data=it.getStringExtra("分數");
         int data4=Integer.parseInt(data);
@@ -92,6 +107,10 @@ public class game4 extends AppCompatActivity implements DialogInterface.OnClickL
         return true;
     }
     public void ture(View view) {
+        clickC = MediaPlayer.create(this,R.raw.correct2);
+        clickC.start();
+        gv = (GlobalClass)getApplicationContext();
+        gv.setPlayer(player);
         Intent it=getIntent();
         String data=it.getStringExtra("分數");
         int data4=Integer.parseInt(data)+20;

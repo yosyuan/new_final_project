@@ -11,7 +11,7 @@
         android:id="@+id/sure4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="52dp"
+        android:layout_marginBottom="32dp"
         android:background="@color/purple_200"
         android:onClick="go"
         android:text="確定"
@@ -26,12 +26,11 @@
         android:id="@+id/imageView24"
         android:layout_width="384dp"
         android:layout_height="362dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/textView15"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.144"
         app:srcCompat="@drawable/simon" />
 
     <TextView
@@ -47,17 +46,20 @@
 
     <TextView
         android:id="@+id/textView15"
-        android:layout_width="246dp"
-        android:layout_height="158dp"
-        android:layout_marginTop="300dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
         android:background="#FFFFFF"
+        android:paddingLeft="20dp"
+        android:paddingTop="15dp"
+        android:paddingRight="15dp"
+        android:paddingBottom="15dp"
         android:text="賭博場故事內容"
-        android:textColor="@color/black"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/sure4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.826" />
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

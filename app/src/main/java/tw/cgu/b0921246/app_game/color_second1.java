@@ -7,6 +7,7 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
@@ -17,7 +18,8 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class color_second1 extends AppCompatActivity implements SensorEventListener {
-
+    private GlobalClass gv;
+    MediaPlayer player,clickB,C;
     SensorManager sm;
     EditText answer;
     Sensor psr, gsr;
@@ -31,9 +33,10 @@ public class color_second1 extends AppCompatActivity implements SensorEventListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_color_second1);
-
+        gv = (GlobalClass)getApplicationContext();
+        player = gv.getPlayer();
+        player.start();
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
-
         layout = findViewById(R.id.layout);
         txv =findViewById(R.id.txv);
         end=findViewById(R.id.end);
@@ -71,7 +74,6 @@ public class color_second1 extends AppCompatActivity implements SensorEventListe
     SensorEventListener gyroscopeSensorListener = new SensorEventListener() {
         @Override
         public void onSensorChanged(SensorEvent event) {
-
             if (event.values[2] > 0.5f) {
                 if (count == 0) {
                     layout.setBackgroundColor(Color.BLUE);   //左
@@ -143,6 +145,10 @@ public class color_second1 extends AppCompatActivity implements SensorEventListe
 
     }
     public void next(View view){
+        clickB = MediaPlayer.create(this,R.raw.click);
+        clickB.start();
+        gv = (GlobalClass)getApplicationContext();
+        gv.setPlayer(player);
         int score1=30;
         Intent it2 = new Intent(this,color_one2.class);
 
@@ -160,6 +166,10 @@ public class color_second1 extends AppCompatActivity implements SensorEventListe
     }
 
     public void giveup1(View view){
+        clickB = MediaPlayer.create(this,R.raw.click);
+        clickB.start();
+        gv = (GlobalClass)getApplicationContext();
+        gv.setPlayer(player);
         int score1=0;
         Intent it2 = new Intent(this,color_one2.class);
 
@@ -173,11 +183,15 @@ public class color_second1 extends AppCompatActivity implements SensorEventListe
     public void confirm(View view){
         String input=answer.getText().toString().trim();
         if(input.equals(correct)){
+            C = MediaPlayer.create(this,R.raw.correct);
+            C.start();
             end.setText("答案正確!!!!!");
             next.setVisibility(View.VISIBLE);
             layout.setBackgroundResource((R.drawable.bgr));
 
         }else{
+            C = MediaPlayer.create(this,R.raw.incorrect);
+            C.start();
             giveup1.setVisibility(View.VISIBLE);
             end.setText("答案錯誤\n返回上一頁再試一次");
             layout.setBackgroundResource((R.drawable.bgr));

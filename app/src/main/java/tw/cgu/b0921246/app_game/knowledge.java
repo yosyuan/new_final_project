@@ -2,6 +2,7 @@ package tw.cgu.b0921246.app_game;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -17,8 +18,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class knowledge extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
-
-
+    private GlobalClass gv;
+    MediaPlayer player,clickB,C;
     String[] subjects = {"地理","語文","科學","魔法","藝術"};
     String[][] questions = {
             {"世界上最大的平原是？",
@@ -94,11 +95,12 @@ public class knowledge extends AppCompatActivity implements AdapterView.OnItemCl
     Toast sbar;
     ListView lv;
     ArrayAdapter<String> adapter;
-    private GlobalClass gv;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_knowledge);
+        player = MediaPlayer.create(this,R.raw.game);
+        player.start();
         next=(Button) findViewById(R.id.nextpage);
         s=(TextView) findViewById(R.id.subject);
         q=(TextView) findViewById(R.id.question);
@@ -125,7 +127,8 @@ public class knowledge extends AppCompatActivity implements AdapterView.OnItemCl
                 (a==2&&((c == 0 && i == 0) || (c == 1 && i == 0) || (c == 2 && i == 1) || (c == 3 && i == 1) || (c == 4 && i == 2)))||
                 (a==3&&((c == 0 && i == 1) || (c == 1 && i == 2) || (c == 2 && i == 1) || (c == 3 && i == 0) || (c == 4 && i == 2)))||
                 (a==4&&((c == 0 && i == 2) || (c == 1 && i == 0) || (c == 2 && i == 1) || (c == 3 && i == 2) || (c == 4 && i == 0)))){
-            sbar.setText("答對了！");
+            C = MediaPlayer.create(this,R.raw.correct);
+            C.start(); sbar.setText("答對了！");
             sbar.show();
             points+=20;
             String p= Integer.toString(points);
@@ -133,6 +136,8 @@ public class knowledge extends AppCompatActivity implements AdapterView.OnItemCl
 
         }
         else {
+            C = MediaPlayer.create(this,R.raw.incorrect);
+            C.start();
             sbar.setText("答錯了！");
             sbar.show();
         }
@@ -150,11 +155,15 @@ public class knowledge extends AppCompatActivity implements AdapterView.OnItemCl
     }
 
     public void nextpage(View v){
+        clickB = MediaPlayer.create(this,R.raw.click);
+        clickB.start();
+        player.release();
         gv = (GlobalClass)getApplicationContext();
         gv.setKnowledgePoints(points);
         int k=gv.getTotalPoints();
         k+=points;
         gv.setTotalPoints(k);
+        points =0;
         Intent it1=new Intent(this,Main6Activity.class);
         startActivity(it1);
         /*String data6=Integer.toString(points);

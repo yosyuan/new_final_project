@@ -1,6 +1,7 @@
 package tw.cgu.b0921246.app_game;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -10,12 +11,16 @@ import androidx.appcompat.app.AppCompatActivity;
 public class color_finalscore extends AppCompatActivity {
 
     private GlobalClass gv;
+    MediaPlayer player,click;
     int score=0;
     int fin3;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_color_finalscore);
+        gv = (GlobalClass)getApplicationContext();
+        player = gv.getPlayer();
+        player.start();
         TextView final_score=(TextView)findViewById(R.id.final_score);
 
         // Intent fin2=getIntent();
@@ -34,6 +39,9 @@ public class color_finalscore extends AppCompatActivity {
 
     }
     public void go(View v){
+        click = MediaPlayer.create(this,R.raw.click);
+        click.start();
+        player.release();
         gv = (GlobalClass)getApplicationContext();
         gv.setColorPoints(fin3);
         int k=gv.getTotalPoints();

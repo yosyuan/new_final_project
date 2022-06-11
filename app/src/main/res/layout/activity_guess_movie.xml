@@ -15,6 +15,22 @@
         tools:layout_editor_absoluteY="0dp">
 
         <Button
+            android:id="@+id/tryagain2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#D1EAF4"
+            android:onClick="next"
+            android:text="放棄"
+            android:textColor="@android:color/black"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.854"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.803" />
+
+        <Button
             android:id="@+id/go2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

@@ -7,6 +7,7 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
@@ -18,6 +19,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class color_second2 extends AppCompatActivity implements SensorEventListener{
 
+    private GlobalClass gv;
+    MediaPlayer player,clickB,C;
     SensorManager sm2;
     EditText answer2;
     Sensor psr2, gsr2;
@@ -31,9 +34,10 @@ public class color_second2 extends AppCompatActivity implements SensorEventListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_color_second2);
-
+        gv = (GlobalClass)getApplicationContext();
+        player = gv.getPlayer();
+        player.start();
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
-
         layout2 = findViewById(R.id.layout2);
         txv2 =findViewById(R.id.txv2);
         end2=findViewById(R.id.end2);
@@ -144,6 +148,10 @@ public class color_second2 extends AppCompatActivity implements SensorEventListe
     }
 
     public void giveup2(View view){
+        clickB = MediaPlayer.create(this,R.raw.click);
+        clickB.start();
+        gv = (GlobalClass)getApplicationContext();
+        gv.setPlayer(player);
         int score2=0;
         Intent it4=new Intent(this,color_one3.class);
         it4.putExtra("分數2",sum2);
@@ -163,17 +171,25 @@ public class color_second2 extends AppCompatActivity implements SensorEventListe
     public void confirm2(View view){
         String input=answer2.getText().toString().trim();
         if(input.equals(correct2)){
+            C = MediaPlayer.create(this,R.raw.correct);
+            C.start();
             end2.setText("答案正確!!!!");
             next2.setVisibility(View.VISIBLE);
             layout2.setBackgroundResource((R.drawable.bgr));
 
         }else{
+            C = MediaPlayer.create(this,R.raw.incorrect);
+            C.start();
             giveup2.setVisibility(View.VISIBLE);
             end2.setText("答案錯誤\n返回上一頁再試一次");
             layout2.setBackgroundResource((R.drawable.bgr));
         }
     }
     public void next2(View view){
+        clickB = MediaPlayer.create(this,R.raw.click);
+        clickB.start();
+        gv = (GlobalClass)getApplicationContext();
+        gv.setPlayer(player);
         int score2=30;
         int fi=sum2+score2;
         Intent it4=new Intent(this,color_one3.class);

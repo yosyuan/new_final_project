@@ -1,6 +1,7 @@
 package tw.cgu.b0921246.app_game;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -12,6 +13,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class Main8Activity extends AppCompatActivity {
 
+
+    MediaPlayer player,click;
     Random x = new Random();
     int n =x.nextInt(4);
     int a=0;
@@ -44,14 +47,14 @@ public class Main8Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main8);
+        player = MediaPlayer.create(this,R.raw.story);
+        player.start();
         dialogue = (TextView)findViewById(R.id.txv8);
         points=findViewById(R.id.p7);
-
         da1=findViewById(R.id.da1);
         da2=findViewById(R.id.da2);
         da3=findViewById(R.id.da3);
         da4=findViewById(R.id.da4);
-
         gv = (GlobalClass)getApplicationContext();
         int p = gv.getTotalPoints();
         points.setText("points："+String.valueOf(p));
@@ -72,12 +75,15 @@ public class Main8Activity extends AppCompatActivity {
     }
 
     public  void go(View v){
+        click = MediaPlayer.create(this,R.raw.click_story);
+        click.start();
         if(a<=2) {
             a += 1;
 
             dialogue.setText(text[n][a]);
         }
         else{
+            player.release();
             Intent it1=new Intent(this,LastPage.class);
             startActivity(it1);
         }

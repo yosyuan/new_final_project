@@ -11,28 +11,25 @@
         android:id="@+id/sure5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="72dp"
+        android:layout_marginBottom="32dp"
         android:backgroundTint="@color/purple_200"
         android:onClick="go"
         android:text="確定"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/story" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/imageView25"
         android:layout_width="374dp"
-        android:layout_height="272dp"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/textView16"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.486"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/p4"
-        app:layout_constraintVertical_bias="0.752"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/teppan" />
 
     <TextView
@@ -48,15 +45,19 @@
 
     <TextView
         android:id="@+id/textView16"
-        android:layout_width="316dp"
-        android:layout_height="170dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
         android:background="@color/white"
+        android:paddingLeft="20dp"
+        android:paddingTop="15dp"
+        android:paddingRight="15dp"
+        android:paddingBottom="15dp"
         android:text="達達和月亮來到了西門町的高級鐵板燒，每樣菜達達都吃得津津有味..."
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/sure5"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.729" />
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

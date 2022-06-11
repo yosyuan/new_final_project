@@ -3,6 +3,7 @@ package tw.cgu.b0921246.app_game;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -14,8 +15,9 @@ import androidx.appcompat.app.AppCompatActivity;
 public class guess_movie extends AppCompatActivity implements DialogInterface.OnClickListener {
 
     private GlobalClass gv;
+    MediaPlayer player,clickB,C;
     EditText input;
-    Button help,confirm,next,goback,tryagain,go;
+    Button help,confirm,next,goback,tryagain,go,giveup;
     TextView clue,score,title,answer,end;
     String[] correct={"小美人魚","美女與野獸","花木蘭","海洋奇緣","冰雪奇緣"};
     String[] wordclue={"小","美","花","海","冰"};
@@ -29,7 +31,9 @@ public class guess_movie extends AppCompatActivity implements DialogInterface.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_guess_movie);
-
+        gv = (GlobalClass)getApplicationContext();
+        player = gv.getPlayer();
+        player.start();
         go=findViewById(R.id.go2);
         input=(EditText)findViewById(R.id.input);
         help=(Button)findViewById(R.id.help);
@@ -42,6 +46,7 @@ public class guess_movie extends AppCompatActivity implements DialogInterface.On
         title=(TextView)findViewById(R.id.title);
         answer=(TextView)findViewById(R.id.answer);
         end=(TextView)findViewById(R.id.end);
+        giveup=findViewById(R.id.tryagain2);
 
         title.setText("迪士尼電影題:"+counter+"/5");
 
@@ -64,6 +69,8 @@ public class guess_movie extends AppCompatActivity implements DialogInterface.On
         }
     }
     public void clue(View view ){
+        clickB = MediaPlayer.create(this,R.raw.click);
+        clickB.start();
         new AlertDialog.Builder(this)
                 .setMessage("選擇提示第一個字分數將扣5分\n選擇字數提示將扣10分")
                 .setCancelable(false)
@@ -75,6 +82,9 @@ public class guess_movie extends AppCompatActivity implements DialogInterface.On
                 .show();
     }
     public void next(View view){
+        counter++;
+        clickB = MediaPlayer.create(this,R.raw.click);
+        clickB.start();
         title.setText("迪士尼電影題:"+counter+"/5");
         next.setVisibility(View.GONE);
         help.setVisibility(View.VISIBLE);
@@ -105,10 +115,16 @@ public class guess_movie extends AppCompatActivity implements DialogInterface.On
             title.setVisibility(View.GONE);
             help.setVisibility(View.GONE);
             goback.setVisibility(View.GONE);
+            giveup.setVisibility(View.GONE);
             if (point < 80) {
+                C = MediaPlayer.create(this,R.raw.incorrect);
+                C.start();
                 end.setText("闖關失敗");
+                go.setVisibility(View.VISIBLE);
                 tryagain.setVisibility(View.VISIBLE);
             } else {
+                C = MediaPlayer.create(this,R.raw.correct);
+                C.start();
                 end.setText("恭喜過關");
                 go.setVisibility(View.VISIBLE);
 
@@ -117,6 +133,9 @@ public class guess_movie extends AppCompatActivity implements DialogInterface.On
     }
 
     public void goback(View view){
+        clickB = MediaPlayer.create(this,R.raw.click);
+        clickB.start();
+        player.release();
         Intent it=new Intent(this,guess.class);
         startActivity(it);
 
@@ -127,25 +146,35 @@ public class guess_movie extends AppCompatActivity implements DialogInterface.On
             answer.setText("請於上方輸入答案");
         }else{
             if(input1.equals(correct[counter-1])){     //答案正確
+                C = MediaPlayer.create(this,R.raw.correct2);
+                C.start();
                 answer.setText("答案正確!!");
                 next.setVisibility(View.VISIBLE);
                 help.setVisibility(View.GONE);
                 clue.setText("");
-                counter++;
+
                 point=point+20;
                 score.setText("目前得分:"+point+"分");
 //                goback.setVisibility(View.GONE);
             }else{
+                C = MediaPlayer.create(this,R.raw.incorrect2);
+                C.start();
                 answer.setText("答案錯誤!!");     //答案錯誤
             }
         }
 
     }
     public void tryagain(View view){
+        clickB = MediaPlayer.create(this,R.raw.click);
+        clickB.start();
+        player.release();
         Intent it= new Intent(this,guess.class);
         startActivity(it);
     }
     public void go (View v){
+        clickB = MediaPlayer.create(this,R.raw.click);
+        clickB.start();
+        player.release();
         gv = (GlobalClass)getApplicationContext();
         gv.setIdiomPoints(point);
         int k=gv.getTotalPoints();

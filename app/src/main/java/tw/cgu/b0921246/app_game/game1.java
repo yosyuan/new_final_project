@@ -1,11 +1,9 @@
 package tw.cgu.b0921246.app_game;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.view.MotionEvent;
@@ -14,12 +12,16 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class game1 extends AppCompatActivity implements DialogInterface.OnClickListener,ImageView.OnTouchListener{
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 
+public class game1 extends AppCompatActivity implements DialogInterface.OnClickListener,ImageView.OnTouchListener{
+    private GlobalClass gv;
     TextView txv,point;
     ImageView image;
     Button btn1,btn2,btn4;
     public int count=0;
+    MediaPlayer player,clickB,clickC;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +45,8 @@ public class game1 extends AppCompatActivity implements DialogInterface.OnClickL
                 .setNeutralButton("還沒好",this)
                 .setNegativeButton(" ",null)
                 .show();
+        player = MediaPlayer.create(this,R.raw.game);
+        player.start();
     }
 
     @Override
@@ -51,10 +55,15 @@ public class game1 extends AppCompatActivity implements DialogInterface.OnClickL
         if (i==DialogInterface.BUTTON_POSITIVE){
             txv.getText().toString();
         }else if (i==DialogInterface.BUTTON_NEUTRAL){
+            player.release();
             finish();
         }
     }
     public void ture(View view) {
+        clickC = MediaPlayer.create(this,R.raw.correct2);
+        clickC.start();
+        gv = (GlobalClass)getApplicationContext();
+        gv.setPlayer(player);
         point.setText(String.valueOf(count+=20));
         Intent it1= new Intent(this, game2.class);
         String data=point.getText().toString();
@@ -62,13 +71,22 @@ public class game1 extends AppCompatActivity implements DialogInterface.OnClickL
         startActivity(it1);
     }
     public void giveup(View view){
+        clickB = MediaPlayer.create(this,R.raw.click);
+        clickB.start();
+        gv = (GlobalClass)getApplicationContext();
+        gv.setPlayer(player);
         Intent it2 = new Intent(this, game2.class);
         point.setText(String.valueOf(count));
         String data="0";
         it2.putExtra("分數",data);
         startActivity(it2);
+
+
     }
     public void goback(View view){
+        clickB = MediaPlayer.create(this,R.raw.click);
+        clickB.start();
+        player.release();
         Intent it1 = new Intent(this, MainActivity.class);
         startActivity(it1);
     }

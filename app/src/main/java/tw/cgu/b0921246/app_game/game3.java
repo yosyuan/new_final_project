@@ -1,24 +1,29 @@
 package tw.cgu.b0921246.app_game;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class game3 extends AppCompatActivity implements DialogInterface.OnClickListener, ImageView.OnClickListener {
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 
+public class game3 extends AppCompatActivity implements DialogInterface.OnClickListener, ImageView.OnClickListener {
+    private GlobalClass gv;
+    MediaPlayer player,clickB,clickC;
     Button btn3,btn2;
     TextView point3;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game3);
+        gv = (GlobalClass)getApplicationContext();
+        player = gv.getPlayer();
+        player.start();
         int[] image = {R.id.ii1, R.id.ii2, R.id.ii10, R.id.ii4, R.id.ii5, R.id.ii11,
                 R.id.ii7, R.id.ii8, R.id.ii9};
         for (int imageview : image) {
@@ -45,9 +50,11 @@ public class game3 extends AppCompatActivity implements DialogInterface.OnClickL
     public void onClick(DialogInterface dialogInterface, int i) {
         if (i==DialogInterface.BUTTON_POSITIVE){
         }else if (i==DialogInterface.BUTTON_NEUTRAL){
+            player.release();
             Intent it1=new Intent(this,MainActivity.class);
             startActivity(it1);
         }else if(i==DialogInterface.BUTTON_NEGATIVE){
+            player.release();
             Intent it1=new Intent(this,game2.class);
             startActivity(it1);
         }
@@ -92,6 +99,10 @@ public class game3 extends AppCompatActivity implements DialogInterface.OnClickL
             //                    .setNeutralButton("回到遊戲主頁", this)
             //                    .setNegativeButton("回到上一個遊戲 ",this)
             //                    .show();
+            clickC = MediaPlayer.create(this,R.raw.correct2);
+            clickC.start();
+            gv = (GlobalClass)getApplicationContext();
+            gv.setPlayer(player);
             Intent it=getIntent();
             String data=it.getStringExtra("分數");
             int data3=Integer.parseInt(data)+20;
@@ -105,10 +116,17 @@ public class game3 extends AppCompatActivity implements DialogInterface.OnClickL
         }
     }
     public void goback(View v){
+        clickB = MediaPlayer.create(this,R.raw.click);
+        clickB.start();
+        player.release();
         Intent it1 = new Intent(this, MainActivity.class);
         startActivity(it1);
     }
     public void giveup(View view){
+        clickB = MediaPlayer.create(this,R.raw.click);
+        clickB.start();
+        gv = (GlobalClass)getApplicationContext();
+        gv.setPlayer(player);
         Intent it=getIntent();
         String data=it.getStringExtra("分數");
         int data3=Integer.parseInt(data);

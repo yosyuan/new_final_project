@@ -11,6 +11,7 @@
         android:id="@+id/sure2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
         android:background="@color/purple_200"
         android:onClick="game1"
         android:text="前往第一關!"
@@ -18,9 +19,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txv7"
-        app:layout_constraintVertical_bias="0.285" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/imageView20"
@@ -32,20 +31,26 @@
         android:layout_marginBottom="17dp"
         app:layout_constraintBottom_toTopOf="@+id/txv7"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/dermitory2" />
 
     <TextView
         android:id="@+id/txv7"
-        android:layout_width="303dp"
-        android:layout_height="170dp"
-        android:layout_marginBottom="156dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
         android:background="@color/white"
+        android:paddingLeft="20dp"
+        android:paddingTop="15dp"
+        android:paddingRight="15dp"
+        android:paddingBottom="15dp"
         android:text="在一個悠閒的午後，達達在宿舍看動漫，突然驚覺已經期末了，不可以再繼續看動漫了！於是他決定去圖書館讀書..."
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/sure2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />

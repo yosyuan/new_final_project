@@ -1,7 +1,9 @@
 package tw.cgu.b0921246.app_game;
 
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.graphics.Color;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -21,22 +23,28 @@ import androidx.appcompat.app.AppCompatActivity;
 public class bet4 extends AppCompatActivity implements TextWatcher, RadioGroup.OnCheckedChangeListener,
 View.OnClickListener, AdapterView.OnItemSelectedListener {
 
+    private GlobalClass gv;
+    MediaPlayer player,clickB,clickC;
     RadioGroup multt;
     Spinner bigor;
-    TextView money500;
+    TextView money500,pointtt;
     String[] place={"比大","比小"};
     Toast tos;
-    Button poi;
+    Button poi,go;
     EditText edtmonyy;
     double mon;
     double count=500;
     int pos=0;
+    int time=10;
+    int points=50;
     TextView winnig;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bet4);
-
+        gv = (GlobalClass)getApplicationContext();
+        player = gv.getPlayer();
+        player.start();
         AlertDialog.Builder bdr = new AlertDialog.Builder(this);
         bdr.setMessage("請先選擇賭金倍率，並輸入您要押下的金額，再點下正下方的骰盅搖骰子 \n" +
                 "按任意處關閉此交談窗");
@@ -47,6 +55,8 @@ View.OnClickListener, AdapterView.OnItemSelectedListener {
 
         tos=Toast.makeText(this,"",Toast.LENGTH_SHORT);
         money500 = findViewById(R.id.textView);
+        go=findViewById(R.id.go);
+        pointtt=findViewById(R.id.pointtt);
         bigor=findViewById(R.id.spinner2);
         bigor.setOnItemSelectedListener(this);
         poi=findViewById(R.id.poi);
@@ -184,7 +194,30 @@ View.OnClickListener, AdapterView.OnItemSelectedListener {
                     break;
             }
 
-            switch (pos){
+            if (pos==0){
+                if (me >= you) {
+                    clickC = MediaPlayer.create(this,R.raw.correct);
+                    clickC.start();
+                    count = count+mon;
+                }
+                else {
+                    clickC = MediaPlayer.create(this,R.raw.incorrect);
+                    clickC.start();
+                    count =count-mon;
+                }
+            }else if (pos==1){
+                if (me <= you) {
+                    clickC = MediaPlayer.create(this,R.raw.correct);
+                    clickC.start();
+                    count = count+mon;
+                }
+                else {
+                    clickC = MediaPlayer.create(this,R.raw.incorrect);
+                    clickC.start();
+                    count =count-mon;
+                }
+            }
+            /*switch (pos){
                 case 0:
                     if (me >= you) {
                         count = count+mon;
@@ -194,20 +227,58 @@ View.OnClickListener, AdapterView.OnItemSelectedListener {
                     }
                 case 1:
                     if (me <= you) {
-                        count = count+mon;
+                        count = count-mon;
                     }
                     else {
-                        count =count-mon;
-                    }
-            }
+                        count =count+mon;
+                    }*/
 
             money500.setText("目前金額:" + count+"元");
-            if(count>=2000){
-                winnig.setVisibility(View.VISIBLE);
-                winnig.setText("您已過關!");
-                winnig.setTextColor(Color.parseColor("#E91E63"));
-                winnig.setBackgroundColor(Color.parseColor("#FAF493"));
+            if (time==1){
+                if(count>=2000){
+                    winnig.setVisibility(View.VISIBLE);
+                    winnig.setText("您已過關!");
+                    pointtt.setText("得分："+String.valueOf(points));
+                    gv = (GlobalClass)getApplicationContext();
+                    int k=gv.getTotalPoints();
+                    k+=points;
+                    gv.setTotalPoints(k);
+                    gv.setBetPoints(points);
+                    go.setVisibility(View.VISIBLE);
+
+                    winnig.setTextColor(Color.parseColor("#E91E63"));
+                    winnig.setBackgroundColor(Color.parseColor("#FAF493"));
+                }else if (count<=2000){
+                    winnig.setText("剩餘次數: 0次");
+                    pointtt.setText("得分：0");
+                    gv = (GlobalClass)getApplicationContext();
+                    gv.setBetPoints(0);
+                    go.setVisibility(View.VISIBLE);
+                }
+            }else if (time>1){
+                if(count>=2000){
+
+                    winnig.setVisibility(View.VISIBLE);
+                    winnig.setText("您已過關!");
+
+                    go.setVisibility(View.VISIBLE);
+
+                    pointtt.setText("得分："+String.valueOf(points));
+                    gv = (GlobalClass)getApplicationContext();
+                    int k=gv.getTotalPoints();
+                    k+=points;
+                    gv.setTotalPoints(k);
+                    gv.setBetPoints(points);
+                    winnig.setTextColor(Color.parseColor("#E91E63"));
+                    winnig.setBackgroundColor(Color.parseColor("#FAF493"));
+                }else if (count<=2000){
+                    time=time-1;
+                    winnig.setText("剩餘次數："+time+"次");
+                    points-=5;
+
+                }
             }
+
         }
     }
 
@@ -255,5 +326,13 @@ View.OnClickListener, AdapterView.OnItemSelectedListener {
                 mon*=10;
                 break;
         }
+    }
+    public void next(View v){
+        clickB = MediaPlayer.create(this,R.raw.click);
+        clickB.start();
+        gv = (GlobalClass)getApplicationContext();
+        gv.setPlayer(player);
+        Intent it1=new Intent(this,bet3.class);
+        startActivity(it1);
     }
 }

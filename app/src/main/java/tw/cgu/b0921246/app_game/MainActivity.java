@@ -1,6 +1,7 @@
 package tw.cgu.b0921246.app_game;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 
@@ -8,17 +9,27 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
+    private GlobalClass gv;
+    MediaPlayer player,clickB;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        player = MediaPlayer.create(this,R.raw.story);
+        player.start();
     }
     public void sure(View v){
-
+        clickB= MediaPlayer.create(this,R.raw.click);
+        clickB.start();
+        gv = (GlobalClass)getApplicationContext();
+        gv.setPlayer(player);
         Intent it1=new Intent(this,Main2Activity.class);
         startActivity(it1);
     }
     public  void exit(View v){
+        clickB= MediaPlayer.create(this,R.raw.click);
+        clickB.start();
         finish();
     }
     public void trybet(View v){

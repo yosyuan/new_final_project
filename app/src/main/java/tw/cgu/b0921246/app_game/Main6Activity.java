@@ -1,6 +1,7 @@
 package tw.cgu.b0921246.app_game;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -11,12 +12,15 @@ import androidx.appcompat.app.AppCompatActivity;
 public class Main6Activity extends AppCompatActivity  {
 
     private GlobalClass gv;
+    MediaPlayer player,click;
     TextView dialogue,points;
     ImageView i1,i2,i3;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main6);
+        player = MediaPlayer.create(this,R.raw.story);
+        player.start();
         dialogue=findViewById(R.id.textView17);
         points=findViewById(R.id.p5);
         gv = (GlobalClass)getApplicationContext();
@@ -46,6 +50,10 @@ public class Main6Activity extends AppCompatActivity  {
     }
 
     public  void go(View v){
+        click = MediaPlayer.create(this,R.raw.click_story);
+        click.start();
+        gv = (GlobalClass)getApplicationContext();
+        gv.setPlayer(player);
         Intent it1=new Intent(this,Main7Activity.class);
         startActivity(it1);
     }

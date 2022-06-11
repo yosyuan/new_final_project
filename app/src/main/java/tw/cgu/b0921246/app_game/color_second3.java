@@ -7,6 +7,7 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.MotionEvent;
@@ -19,6 +20,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class color_second3 extends AppCompatActivity implements SensorEventListener,View.OnTouchListener {
 
+    private GlobalClass gv;
+    MediaPlayer player,clickB,C;
     SensorManager sm3;
     EditText answer3;
     Sensor psr3, gsr3;
@@ -33,9 +36,10 @@ public class color_second3 extends AppCompatActivity implements SensorEventListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_color_second3);
-
+        gv = (GlobalClass)getApplicationContext();
+        player = gv.getPlayer();
+        player.start();
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
-
         layout3 = findViewById(R.id.layout3);
         txv3 = findViewById(R.id.txv3);
         end3 = findViewById(R.id.end3);
@@ -151,17 +155,25 @@ public class color_second3 extends AppCompatActivity implements SensorEventListe
     public void confirm3(View view) {
         String input = answer3.getText().toString().trim();
         if (input.equals(correct3)) {
+            C = MediaPlayer.create(this,R.raw.correct);
+            C.start();
             end3.setText("答案正確!!!!");
             next3.setVisibility(View.VISIBLE);
             layout3.setBackgroundResource((R.drawable.bgr));
 
         } else {
+            C = MediaPlayer.create(this,R.raw.incorrect);
+            C.start();
             giveup3.setVisibility(View.VISIBLE);
             end3.setText("答案錯誤\n返回上一頁再試一次");
             layout3.setBackgroundResource((R.drawable.bgr));
         }
     }
     public void giveup3(View view){
+        clickB = MediaPlayer.create(this,R.raw.click);
+        clickB.start();
+        gv = (GlobalClass)getApplicationContext();
+        gv.setPlayer(player);
         int score3=0;
         Intent it6=new Intent(this,color_finalscore.class);
         it6.putExtra("分數3",sum4);
@@ -177,6 +189,10 @@ public class color_second3 extends AppCompatActivity implements SensorEventListe
     }
 
     public void next3(View view){
+        clickB = MediaPlayer.create(this,R.raw.click);
+        clickB.start();
+        gv = (GlobalClass)getApplicationContext();
+        gv.setPlayer(player);
         int score3=40;
         int fin1=score3+sum4;
         Intent it6=new Intent(this,color_finalscore.class);

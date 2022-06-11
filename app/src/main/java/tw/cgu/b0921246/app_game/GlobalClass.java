@@ -1,6 +1,7 @@
 package tw.cgu.b0921246.app_game;
 
 import android.app.Application;
+import android.media.MediaPlayer;
 
 public class GlobalClass extends Application {
     private int totalPoints = 0;
@@ -10,6 +11,7 @@ public class GlobalClass extends Application {
     private int knowledgePoints = 0;
     private int prise = 0;
     private int colorPoints = 0;
+    private MediaPlayer player;
 
     public void setTotalPoints(int points){
         this.totalPoints = points;
@@ -58,12 +60,21 @@ public class GlobalClass extends Application {
     public int getPrise(){
         return prise;
     }
+
     public void setColorPoints(int points){
         this.colorPoints = points;
     }
 
     public int getColorPoints(){
         return colorPoints;
+    }
+
+    public void setPlayer(MediaPlayer player){
+        this.player = player;
+    }
+
+    public MediaPlayer getPlayer(){
+        return player;
     }
 
 }
