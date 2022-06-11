@@ -3,6 +3,7 @@ package tw.cgu.b0921246.app_game;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,6 +12,7 @@ public class Main6Activity extends AppCompatActivity  {
 
     private GlobalClass gv;
     TextView dialogue,points;
+    ImageView i1,i2,i3;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,12 +23,18 @@ public class Main6Activity extends AppCompatActivity  {
         int pp = gv.getTotalPoints();
         points.setText("points："+String.valueOf(pp));
         int p = gv.getKnowledgePoints();
-        if (p==0||p==20)
+        i1=findViewById(R.id.pudding);
+        i2=findViewById(R.id.browine);
+        i3=findViewById(R.id.pie);
+        if (p==0||p==20){
             dialogue.setText("廚師：今天為你們獻上的甜點是\"低級QQ布丁\"！");
-        else if(p==40||p==60)
+            i1.setVisibility(View.VISIBLE);}
+        else if(p==40||p==60){
             dialogue.setText("廚師：今天為你們獻上的甜點是\"頂級榛果脆片布朗尼\"！");
-        else if(p==80||p==100)
+            i2.setVisibility(View.VISIBLE);}
+        else if(p==80||p==100){
             dialogue.setText("廚師：今天為你們獻上的甜點是\"究極蜂橙莓果千層派\"！");
+            i3.setVisibility(View.VISIBLE);}
 
         /*Intent it=getIntent();
         String data=it.getStringExtra("分數");

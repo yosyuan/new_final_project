@@ -3,6 +3,7 @@ package tw.cgu.b0921246.app_game;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.Random;
@@ -14,6 +15,9 @@ public class Main8Activity extends AppCompatActivity {
     Random x = new Random();
     int n =x.nextInt(4);
     int a=0;
+
+    ImageView da1,da2,da3,da4;
+    //int[] da={R.id.da3,R.id.da1,R.id.da2,R.id.da4};
 
     private GlobalClass gv;
     TextView dialogue,points;
@@ -42,16 +46,35 @@ public class Main8Activity extends AppCompatActivity {
         setContentView(R.layout.activity_main8);
         dialogue = (TextView)findViewById(R.id.txv8);
         points=findViewById(R.id.p7);
+
+        da1=findViewById(R.id.da1);
+        da2=findViewById(R.id.da2);
+        da3=findViewById(R.id.da3);
+        da4=findViewById(R.id.da4);
+
         gv = (GlobalClass)getApplicationContext();
         int p = gv.getTotalPoints();
         points.setText("points："+String.valueOf(p));
         dialogue.setText(text[n][a]);
         gv.setPrise(n);
+        if (n==0){
+            da3.setVisibility(View.VISIBLE);
+        }else if (n==1){
+            da1.setVisibility(View.VISIBLE);
+        }else if (n==2){
+            da2.setVisibility(View.VISIBLE);
+        }else {
+            da4.setVisibility(View.VISIBLE);
+        }
+
+
+
     }
 
     public  void go(View v){
         if(a<=2) {
             a += 1;
+
             dialogue.setText(text[n][a]);
         }
         else{

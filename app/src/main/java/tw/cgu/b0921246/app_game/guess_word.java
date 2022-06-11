@@ -109,6 +109,7 @@ public class guess_word extends AppCompatActivity implements DialogInterface.OnC
             if (point < 80) {
                 end.setText("闖關失敗");
                 tryagain.setVisibility(View.VISIBLE);
+                go.setVisibility(View.VISIBLE);
             } else {
                 end.setText("恭喜過關");
                 go.setVisibility(View.VISIBLE);

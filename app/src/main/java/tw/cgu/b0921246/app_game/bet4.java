@@ -1,7 +1,5 @@
 package tw.cgu.b0921246.app_game;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.AlertDialog;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -11,7 +9,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -19,19 +16,22 @@ import android.widget.Toast;
 
 import java.util.Random;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 public class bet4 extends AppCompatActivity implements TextWatcher, RadioGroup.OnCheckedChangeListener,
 View.OnClickListener, AdapterView.OnItemSelectedListener {
 
-    RadioGroup mul;
+    RadioGroup multt;
     Spinner bigor;
+    TextView money500;
     String[] place={"比大","比小"};
-    TextView money;
-    ImageView btnn;
-    EditText edtmoney;
+    Toast tos;
+    Button poi;
+    EditText edtmonyy;
     double mon;
-    double count3=500;
+    double count=500;
     int pos=0;
-    TextView win;
+    TextView winnig;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,17 +45,18 @@ View.OnClickListener, AdapterView.OnItemSelectedListener {
         bdr.setCancelable(true);
         bdr.show();
 
-        money = findViewById(R.id.textView);
+        tos=Toast.makeText(this,"",Toast.LENGTH_SHORT);
+        money500 = findViewById(R.id.textView);
         bigor=findViewById(R.id.spinner2);
         bigor.setOnItemSelectedListener(this);
-        btnn=findViewById(R.id.imageView19);
-        btnn.setOnClickListener(this);
-        edtmoney= findViewById(R.id.edtmoney);
-        edtmoney.addTextChangedListener(this);
-        mul=findViewById(R.id.mil);
-        mul.setOnCheckedChangeListener(this);
+        poi=findViewById(R.id.poi);
+        poi.setOnClickListener(this);
+        edtmonyy= findViewById(R.id.edtmoney);
+        edtmonyy.addTextChangedListener(this);
+        multt=findViewById(R.id.mil);
+        multt.setOnCheckedChangeListener(this);
 
-        win=findViewById(R.id.textView13);
+        winnig=findViewById(R.id.textView13);
     }
 
     @Override
@@ -75,7 +76,7 @@ View.OnClickListener, AdapterView.OnItemSelectedListener {
 
     @Override
     public void onClick(View view) {
-        if (edtmoney.length() == 0) {
+        if (edtmonyy.length() == 0) {
             Toast tos = Toast.makeText(this, "請輸入押金", Toast.LENGTH_SHORT);
         } else {
             Random x = new Random();
@@ -186,26 +187,26 @@ View.OnClickListener, AdapterView.OnItemSelectedListener {
             switch (pos){
                 case 0:
                     if (me >= you) {
-                        count3 = count3+mon;
+                        count = count+mon;
                     }
                     else {
-                        count3 =count3-mon;
+                        count =count-mon;
                     }
                 case 1:
                     if (me <= you) {
-                        count3 = count3+mon;
+                        count = count+mon;
                     }
                     else {
-                        count3 =count3-mon;
+                        count =count-mon;
                     }
             }
 
-            money.setText("目前金額:" + count3+"元");
-            if(count3>=2000){
-                win.setVisibility(View.VISIBLE);
-                win.setText("您已過關!");
-                win.setTextColor(Color.parseColor("#E91E63"));
-                win.setBackgroundColor(Color.parseColor("#FAF493"));
+            money500.setText("目前金額:" + count+"元");
+            if(count>=2000){
+                winnig.setVisibility(View.VISIBLE);
+                winnig.setText("您已過關!");
+                winnig.setTextColor(Color.parseColor("#E91E63"));
+                winnig.setBackgroundColor(Color.parseColor("#FAF493"));
             }
         }
     }
@@ -213,6 +214,8 @@ View.OnClickListener, AdapterView.OnItemSelectedListener {
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
         i=bigor.getSelectedItemPosition();
+        tos.setText("你選擇 "+place[i]);
+        tos.show();
         if(i==0) {
 
         }
@@ -230,7 +233,7 @@ View.OnClickListener, AdapterView.OnItemSelectedListener {
 
     @Override
     public void onCheckedChanged(RadioGroup radioGroup, int i) {
-        String str=edtmoney.getText().toString();
+        String str=edtmonyy.getText().toString();
         try{
             mon=Double.parseDouble(str);
         }catch (Exception e){
@@ -241,7 +244,7 @@ View.OnClickListener, AdapterView.OnItemSelectedListener {
         int me = x.nextInt(6);
         Random z = new Random();
         int you = z.nextInt(6);
-        switch (mul.getCheckedRadioButtonId()){
+        switch (multt.getCheckedRadioButtonId()){
             case R.id.x3:
                 mon*=3;
                 break;
