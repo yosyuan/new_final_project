@@ -12,72 +12,73 @@
         android:id="@+id/sure"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="76dp"
-        android:layout_marginTop="27dp"
-        android:layout_marginEnd="69dp"
+        android:layout_marginStart="70dp"
+        android:layout_marginBottom="180dp"
         android:backgroundTint="@color/purple_200"
         android:onClick="sure"
         android:text="開始"
         android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="@+id/trybet"
-        app:layout_constraintStart_toStartOf="@+id/tryknowedge"
-        app:layout_constraintTop_toBottomOf="@+id/tryknowedge" />
-
-    <Button
-        android:id="@+id/trycolor"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:onClick="trycolor"
-        android:text="TRYCOLOR"
-        app:layout_constraintBaseline_toBaselineOf="@+id/tryguess"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/tryguess"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="13dp"
-        android:layout_marginBottom="263dp"
-        android:onClick="tryguess"
-        android:text="tryguess"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/trycolor" />
-
-    <Button
-        android:id="@+id/tryknowedge"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:onClick="tryknowedge"
-        android:text="Tryknowedge"
-        app:layout_constraintBaseline_toBaselineOf="@+id/trybet"
         app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/trybet"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="20dp"
-        android:onClick="trybet"
-        android:text="Trybet"
-        app:layout_constraintStart_toEndOf="@+id/tryknowedge"
-        app:layout_constraintTop_toBottomOf="@+id/tryguess" />
 
     <Button
         android:id="@+id/button7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="27dp"
         android:backgroundTint="@color/purple_200"
         android:onClick="exit"
         android:text="退出遊戲"
         android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.266"
+        app:layout_constraintStart_toStartOf="@+id/sure"
+        app:layout_constraintTop_toBottomOf="@+id/sure" />
+
+    <Button
+        android:id="@+id/trycolor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="trycolor"
+        android:text="TRYCOLOR"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sure"
-        app:layout_constraintVertical_bias="0.38" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/tryguess"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="tryguess"
+        android:text="tryguess"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/tryknowedge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="tryknowedge"
+        android:text="Tryknowedge"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/trybet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="trybet"
+        android:text="Trybet"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

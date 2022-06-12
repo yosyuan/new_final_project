@@ -21,11 +21,11 @@ public class color_one2 extends AppCompatActivity {
         player = gv.getPlayer();
         player.start();
         question2=(TextView) findViewById(R.id.question2);
-        question2.setText("向左傾、手遮住螢幕、手打開遮住的螢幕、向右傾");
 
         Intent it2=getIntent();
         int end=it2.getIntExtra("分數1",0);
         sum=end;
+        question2.setText("向左傾、手遮住螢幕、手打開遮住的螢幕、向右傾"+"\n目前得分"+end);
     }
     public void begin2(View view){
         clickB = MediaPlayer.create(this,R.raw.click);

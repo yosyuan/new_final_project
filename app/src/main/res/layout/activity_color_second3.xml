@@ -10,18 +10,6 @@
     android:visibility="visible"
     tools:context=".color_second3">
 
-    <TextView
-        android:id="@+id/txv3"
-        android:layout_width="164dp"
-        android:layout_height="63dp"
-        android:layout_marginTop="124dp"
-        android:background="#FFFFFF"
-        android:text="TextView"
-        android:textSize="28sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <Button
         android:id="@+id/confirm3"
         android:layout_width="wrap_content"
@@ -33,6 +21,33 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/answer3" />
+
+    <Button
+        android:id="@+id/next3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:onClick="next3"
+        android:text="下一關"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/end3" />
+
+    <Button
+        android:id="@+id/giveup3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="giveup3"
+        android:text="我放棄"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.916"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/next3"
+        app:layout_constraintVertical_bias="0.0"
+        tools:visibility="invisible" />
 
     <EditText
         android:id="@+id/answer3"
@@ -60,29 +75,27 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/confirm3" />
 
-    <Button
-        android:id="@+id/next3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="73dp"
-        android:onClick="next3"
-        android:text="下一關"
-        android:visibility="invisible"
+    <TextView
+        android:id="@+id/txv3"
+        android:layout_width="164dp"
+        android:layout_height="63dp"
+        android:layout_marginTop="124dp"
+        android:background="#FFFFFF"
+        android:text="TextView"
+        android:textSize="28sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/end3" />
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/giveup3"
+    <TextView
+        android:id="@+id/textView20"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="giveup3"
-        android:text="我放棄"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:gravity="center"
+        android:text="向右傾、手遮住螢幕、向左傾、手打開遮住的螢幕、輕觸螢幕"
+        app:layout_constraintBottom_toTopOf="@+id/answer3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.916"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/next3"
-        app:layout_constraintVertical_bias="0.363"
-        tools:visibility="invisible" />
+        app:layout_constraintTop_toBottomOf="@+id/txv3" />
 </androidx.constraintlayout.widget.ConstraintLayout>

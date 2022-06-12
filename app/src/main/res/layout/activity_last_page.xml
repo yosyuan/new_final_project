@@ -11,17 +11,19 @@
     android:paddingBottom="15dp"
     tools:context=".LastPage">
 
-    <ImageView
-        android:id="@+id/da"
-        android:layout_width="323dp"
-        android:layout_height="289dp"
-        android:visibility="gone"
+    <Button
+        android:id="@+id/btnf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:background="@color/purple_200"
+        android:onClick="next"
+        android:text="繼續"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.208"
-        app:srcCompat="@drawable/da1" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/da5"
@@ -61,45 +63,46 @@
         app:layout_constraintVertical_bias="0.214"
         app:srcCompat="@drawable/da4" />
 
-    <Button
-        android:id="@+id/btnf"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:background="@color/purple_200"
-        android:onClick="next"
-        android:text="繼續"
-        android:textColor="@color/white"
+    <ImageView
+        android:id="@+id/da"
+        android:layout_width="323dp"
+        android:layout_height="289dp"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.208"
+        app:srcCompat="@drawable/da1" />
 
-    <TextView
-        android:id="@+id/txv19"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="166dp"
         android:layout_marginBottom="24dp"
-        android:background="@color/white"
-        android:paddingLeft="20dp"
-        android:paddingTop="15dp"
-        android:paddingRight="15dp"
-        android:paddingBottom="15dp"
-        android:text="達達的一天達達的一天達達的一天達達的一天達達的一天達達的一天達達的一天達達的一天達達的一天達達的一天達達的一天達達的一天達達的一天達達的一天達達的一天達達的一天達達的一天達達的一天達達的一天達達的一天達達的一天 "
-        android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/btnf"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/txv19"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:paddingLeft="20dp"
+            android:paddingTop="15dp"
+            android:paddingRight="15dp"
+            android:paddingBottom="15dp"
+            android:text="達達的一天達達的一天達達的一天達達的一天達達的一天達達的一天達達的一天達達的一天達達的一天達達的一天達達的一天達達的一天達達的一天達達的一天達達的一天達達的一天達達的一天達達的一天達達的一天達達的一天達達的一天 "
+            android:textSize="20sp" />
+    </ScrollView>
 
     <TextView
         android:id="@+id/total"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="24dp"
         android:text="總分："
         android:textSize="34sp"
         app:layout_constraintStart_toStartOf="parent"

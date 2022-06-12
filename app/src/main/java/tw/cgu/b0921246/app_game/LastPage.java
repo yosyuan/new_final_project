@@ -37,7 +37,15 @@ public class LastPage extends AppCompatActivity {
         int p = gv.getTotalPoints();
         points.setText("總分："+String.valueOf(p)+"分");
         btn = (Button) findViewById(R.id.btnf);
-
+        if (n==0){
+            da6.setVisibility(View.VISIBLE);
+        }else if (n==1){
+            da.setVisibility(View.VISIBLE);
+        }else if (n==2){
+            da5.setVisibility(View.VISIBLE);
+        }else {
+            da7.setVisibility(View.VISIBLE);
+        }
         if(p<=200){
             player = MediaPlayer.create(this,R.raw.defeat);
             player.start();
@@ -67,6 +75,7 @@ public class LastPage extends AppCompatActivity {
     }
 
     public void next(View v){
+
         click= MediaPlayer.create(this,R.raw.click);
         click.start();
         gv = (GlobalClass)getApplicationContext();
@@ -75,19 +84,12 @@ public class LastPage extends AppCompatActivity {
         int idiom = gv.getIdiomPoints();
         int knowledge = gv.getKnowledgePoints();
         int n = gv.getPrise();
-        if (n==0){
-            da6.setVisibility(View.VISIBLE);
-        }else if (n==1){
-            da.setVisibility(View.VISIBLE);
-        }else if (n==2){
-            da5.setVisibility(View.VISIBLE);
-        }else {
-            da7.setVisibility(View.VISIBLE);
-        }
+        btn.setText("回主畫面");
         double t1 = find/4+bet/5+idiom*3/20+knowledge/4;
         int t2 = gv.getColorPoints();
         double  t3 = bet*2/5+knowledge*2/5+prisePoints[n];
         if(a==false){
+            btn.setText("回主畫面");
             describe.setText(String.format("智力：%.0f/100",t1)+"\n反應："+String.valueOf(t2)+String.format("/100\n運氣：%.0f/100",t3)+"\n心情："+String.valueOf(mood[m])+"/100");
             a=true;
         }
@@ -96,8 +98,14 @@ public class LastPage extends AppCompatActivity {
             click.start();
             player.release();
             btn.setText("回主畫面");
-            Intent it=new Intent(this,MainActivity.class);
+
+            //getIntent().setClass(LastPage.this,MainActivity.class);
+            Intent it=new Intent(getApplication(),MainActivity.class);
+          //  it.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+           // it.putExtra("EXIT",true);
             startActivity(it);
+          //  finish();
+           // System.exit(0);
         }
     }
 }

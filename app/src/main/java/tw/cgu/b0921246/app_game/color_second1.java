@@ -25,7 +25,7 @@ public class color_second1 extends AppCompatActivity implements SensorEventListe
     Sensor psr, gsr;
     View layout;
     Button confirm,next,giveup1;
-    TextView txv,end;
+    TextView txv,end,cule;
     int count = 0;
 
     String correct="紅綠藍黃藍";
@@ -42,6 +42,7 @@ public class color_second1 extends AppCompatActivity implements SensorEventListe
         end=findViewById(R.id.end);
         confirm=findViewById(R.id.confirm);
         next=findViewById(R.id.next);
+        cule=findViewById(R.id.textView18);
         answer=findViewById(R.id.answer);
 
         giveup1=findViewById(R.id.giveup1);
@@ -53,10 +54,10 @@ public class color_second1 extends AppCompatActivity implements SensorEventListe
 
 
 
-        new CountDownTimer(5000, 3000) {
+        new CountDownTimer(6000, 1000) {
 
             public void onTick(long millisUntilFinished) {
-                txv.setText("倒數 " + millisUntilFinished / 3000 + "秒");
+                txv.setText("倒數 " + millisUntilFinished / 1000 + "秒");
             }
 
             public void onFinish() {
@@ -64,6 +65,7 @@ public class color_second1 extends AppCompatActivity implements SensorEventListe
                 count++;
                 confirm.setVisibility(View.VISIBLE);
                 answer.setVisibility(View.VISIBLE);
+                cule.setVisibility(View.GONE);
                 end.setVisibility(View.VISIBLE);
                 layout.setBackgroundResource((R.drawable.bgr));
 
@@ -74,14 +76,14 @@ public class color_second1 extends AppCompatActivity implements SensorEventListe
     SensorEventListener gyroscopeSensorListener = new SensorEventListener() {
         @Override
         public void onSensorChanged(SensorEvent event) {
-            if (event.values[2] > 0.5f) {
+            if (event.values[2] > 0.3f) {
                 if (count == 0) {
                     layout.setBackgroundColor(Color.BLUE);   //左
                 } else if (count == 1) {
                     layout.setBackgroundColor(Color.WHITE);
 
                 }
-            } else if (event.values[2] < -0.5f) {
+            } else if (event.values[2] < -0.3f) {
                 if (count == 0) {
                     layout.setBackgroundColor(Color.YELLOW);   //右
                 } else if (count == 1) {

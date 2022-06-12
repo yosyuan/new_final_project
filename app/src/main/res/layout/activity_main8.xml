@@ -14,13 +14,38 @@
         android:layout_marginBottom="32dp"
         android:backgroundTint="@color/purple_200"
         android:onClick="go"
-        android:text="確定"
+        android:text="繼續"
         android:textColor="@color/white"
-        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.476"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/moon2"
+        android:layout_width="301dp"
+        android:layout_height="310dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.326"
+        app:srcCompat="@drawable/moon_main2" />
+
+    <ImageView
+        android:id="@+id/dada"
+        android:layout_width="327dp"
+        android:layout_height="330dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.474"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.324"
+        app:srcCompat="@drawable/dada" />
 
     <ImageView
         android:id="@+id/da1"
@@ -29,10 +54,11 @@
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.477"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.377"
-        app:srcCompat="@drawable/da1" />
+        app:layout_constraintVertical_bias="0.242"
+        app:srcCompat="@drawable/prize4" />
 
     <ImageView
         android:id="@+id/da2"
@@ -45,7 +71,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.375"
-        app:srcCompat="@drawable/da2" />
+        app:srcCompat="@drawable/prize3" />
 
     <ImageView
         android:id="@+id/da3"
@@ -54,11 +80,11 @@
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.379"
-        app:srcCompat="@drawable/da3" />
+        app:layout_constraintVertical_bias="0.275"
+        app:srcCompat="@drawable/prize2" />
 
     <ImageView
         android:id="@+id/da4"
@@ -70,7 +96,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.383"
-        app:srcCompat="@drawable/da4" />
+        app:srcCompat="@drawable/prize" />
 
     <TextView
         android:id="@+id/p7"

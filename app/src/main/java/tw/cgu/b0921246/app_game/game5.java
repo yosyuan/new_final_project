@@ -31,7 +31,7 @@ public class game5 extends AppCompatActivity implements DialogInterface.OnClickL
         player = gv.getPlayer();
         player.start();
 
-        btn8=findViewById(R.id.btn8);
+        //btn8=findViewById(R.id.btn8);
         btn9=findViewById(R.id.btn9);
         point5=findViewById(R.id.point5);
         imageView=findViewById(R.id.e12);
@@ -49,7 +49,6 @@ public class game5 extends AppCompatActivity implements DialogInterface.OnClickL
                 .setTitle("歡迎來到最後一關！")
                 .setIcon(android.R.drawable.btn_star_big_off)
                 .setPositiveButton("準備好了",this)
-                .setNeutralButton("回到遊戲主頁",this)
                 .setNegativeButton("回到上一個遊戲 ",this)
                 .show();
         Intent it=getIntent();
@@ -60,22 +59,11 @@ public class game5 extends AppCompatActivity implements DialogInterface.OnClickL
     @Override
     public void onClick(DialogInterface dialogInterface, int i) {
         if (i==DialogInterface.BUTTON_POSITIVE){
-        }else if (i==DialogInterface.BUTTON_NEUTRAL){
-            player.release();
-            Intent it1=new Intent(this,MainActivity.class);
-            startActivity(it1);
         }else if(i==DialogInterface.BUTTON_NEGATIVE){
-            player.release();
+            //player.release();
             Intent it1=new Intent(this,game4.class);
             startActivity(it1);
         }
-    }
-    public void goback(View v){
-        clickB = MediaPlayer.create(this,R.raw.click);
-        clickB.start();
-        player.release();
-        Intent it1 = new Intent(this, MainActivity.class);
-        startActivity(it1);
     }
     public void giveup(View view){
         clickB = MediaPlayer.create(this,R.raw.click);

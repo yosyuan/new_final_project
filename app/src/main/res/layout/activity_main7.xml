@@ -7,6 +7,20 @@
     android:background="@color/purple"
     tools:context=".Main7Activity">
 
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:background="@color/purple_200"
+        android:onClick="go"
+        android:text="繼續"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <ImageView
         android:id="@+id/imageView26"
         android:layout_width="384dp"
@@ -18,19 +32,19 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/simon" />
 
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
-        android:background="@color/purple_200"
-        android:onClick="go"
-        android:text="確認"
-        android:textColor="@color/white"
+    <ImageView
+        android:id="@+id/imageView27"
+        android:layout_width="400dp"
+        android:layout_height="307dp"
+        android:layout_marginTop="56dp"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.428"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/aunt" />
 
     <TextView
         android:id="@+id/p6"

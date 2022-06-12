@@ -30,11 +30,20 @@ public class MainActivity extends AppCompatActivity {
     public  void exit(View v){
         clickB= MediaPlayer.create(this,R.raw.click);
         clickB.start();
-        finish();
+        /*
+        if (getIntent().getBooleanExtra("EXIT",false)){
+            finish();}
+            */
+        moveTaskToBack(true);
+        android.os.Process.killProcess(android.os.Process.myPid());
+        System.exit(1);
+
+        //finish();
+        //System.exit(0);//退出遊戲
     }
     public void trybet(View v){
 
-        Intent it1=new Intent(this,bet.class);
+        Intent it1=new Intent(this,Main8Activity.class);
         startActivity(it1);
     }
     public void tryguess(View v){

@@ -12,7 +12,7 @@ public class color_finalscore extends AppCompatActivity {
 
     private GlobalClass gv;
     MediaPlayer player,click;
-    int score=0;
+    //int score=0;
     int fin3;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

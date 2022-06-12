@@ -21,9 +21,10 @@ public class color_one3 extends AppCompatActivity {
         player = gv.getPlayer();
         player.start();
         question3=findViewById(R.id.question3);
-        question3.setText("向右傾、手遮住螢幕、向左傾、手打開遮住的螢幕、輕觸螢幕");
+
         Intent it4=getIntent();
         int end33=it4.getIntExtra("分數2",0);
+        question3.setText("向右傾、手遮住螢幕、向左傾、手打開遮住的螢幕、輕觸螢幕"+"\n目前得分："+end33);
         sum3=end33;
 
     }

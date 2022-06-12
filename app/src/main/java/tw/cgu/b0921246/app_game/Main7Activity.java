@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -14,8 +15,9 @@ public class Main7Activity extends AppCompatActivity {
     private GlobalClass gv;
     MediaPlayer player,click;
     TextView dialogue,points;
-    boolean text = false;
-    ImageView i1;
+    Button btn;
+    int t = 0;
+    ImageView i1,i2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,8 +26,10 @@ public class Main7Activity extends AppCompatActivity {
         player = gv.getPlayer();
         player.start();
         dialogue = (TextView) findViewById(R.id.txv7);
+        btn = (Button)findViewById(R.id.button4);
         points=findViewById(R.id.p6);
         i1=findViewById(R.id.imageView26);
+        i2=findViewById(R.id.imageView27);
         int p = gv.getTotalPoints();
         points.setText("points："+String.valueOf(p));
 
@@ -34,10 +38,16 @@ public class Main7Activity extends AppCompatActivity {
     public void go(View v){
         click = MediaPlayer.create(this,R.raw.click_story);
         click.start();
-        if(text == false){
+        if(t==0){
             i1.setVisibility(View.GONE);
-            dialogue.setText("奇怪阿姨：同學~可以幫我說聲加油嗎？我是馬扁大學的設計系學生，我們來玩個遊戲，如果你得分越高就可以獲得越好的獎品喔~獎品都是我們花很多時間設計出來的作品！玩一次只要付三百塊喔~");
-            text = true;
+            i2.setVisibility(View.VISIBLE);
+            dialogue.setText("奇怪阿姨：同學~可以幫我說聲加油嗎？我是馬扁大學的設計系學生，我們來玩個遊戲~");
+            t+=1;
+        }
+        else if(t==1){
+            dialogue.setText("奇怪阿姨：如果你得分越高就可以獲得越好的獎品喔~獎品都是我們花很多時間設計出來的作品！玩一次只要付三百塊喔~");
+            t+=1;
+            btn.setText("前往下一關");
         }
         else{
             //這裡要連到王和涂的遊戲

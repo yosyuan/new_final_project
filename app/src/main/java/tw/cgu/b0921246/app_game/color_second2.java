@@ -26,7 +26,7 @@ public class color_second2 extends AppCompatActivity implements SensorEventListe
     Sensor psr2, gsr2;
     View layout2;
     Button confirm2,next2,giveup2;
-    TextView txv2,end2,tv7;
+    TextView txv2,end2,tv7,cule;
     int count2 = 0;
     String correct2="黑黃紅藍";
     int sum2;
@@ -44,6 +44,7 @@ public class color_second2 extends AppCompatActivity implements SensorEventListe
         confirm2=findViewById(R.id.confirm2);
         next2=findViewById(R.id.next2);
         answer2=findViewById(R.id.answer2);
+        cule=findViewById(R.id.textView19);
 
         giveup2=findViewById(R.id.giveup2);
         sm2 = (SensorManager) getSystemService(SENSOR_SERVICE);
@@ -58,15 +59,16 @@ public class color_second2 extends AppCompatActivity implements SensorEventListe
 
         //tv7.setText("分數"+sum2);
 
-        new CountDownTimer(5000, 4000) {
+        new CountDownTimer(6000, 1000) {
 
             public void onTick(long millisUntilFinished) {
-                txv2.setText("倒數 " + millisUntilFinished / 3000 + "秒");
+                txv2.setText("倒數 " + millisUntilFinished / 1000 + "秒");
             }
 
             public void onFinish() {
                 txv2.setText("時間到");
                 count2++;
+                cule.setVisibility(View.GONE);
                 confirm2.setVisibility(View.VISIBLE);
                 answer2.setVisibility(View.VISIBLE);
                 end2.setVisibility(View.VISIBLE);
@@ -79,7 +81,7 @@ public class color_second2 extends AppCompatActivity implements SensorEventListe
         @Override
         public void onSensorChanged(SensorEvent event) {
 
-            if (event.values[2] > 0.5f) {
+            if (event.values[2] > 0.3f) {
                 if (count2 == 0) {
                     layout2.setBackgroundColor(Color.BLACK);   //左
 
@@ -88,7 +90,7 @@ public class color_second2 extends AppCompatActivity implements SensorEventListe
                     layout2.setBackgroundColor(Color.WHITE);
 
                 }
-            } else if (event.values[2] < -0.5f) {
+            } else if (event.values[2] < -0.3f) {
                 if (count2 == 0) {
                     layout2.setBackgroundColor(Color.BLUE);   //右
 
@@ -152,7 +154,7 @@ public class color_second2 extends AppCompatActivity implements SensorEventListe
         clickB.start();
         gv = (GlobalClass)getApplicationContext();
         gv.setPlayer(player);
-        int score2=0;
+        //int score2=0;
         Intent it4=new Intent(this,color_one3.class);
         it4.putExtra("分數2",sum2);
         startActivity(it4);

@@ -29,7 +29,7 @@ public class game3 extends AppCompatActivity implements DialogInterface.OnClickL
         for (int imageview : image) {
             findViewById(imageview).setOnClickListener(this);
         }
-        btn3=findViewById(R.id.btn3);
+        //btn3=findViewById(R.id.btn3);
         btn2=findViewById(R.id.btn2);
         point3=findViewById(R.id.point3);
         new AlertDialog.Builder(this)
@@ -38,7 +38,6 @@ public class game3 extends AppCompatActivity implements DialogInterface.OnClickL
                 .setTitle("歡迎來到第三關！")
                 .setIcon(android.R.drawable.btn_star_big_off)
                 .setPositiveButton("準備好了",this)
-                .setNeutralButton("回到遊戲主頁",this)
                 .setNegativeButton("回到上一個遊戲 ",this)
                 .show();
         Intent it=getIntent();
@@ -49,14 +48,15 @@ public class game3 extends AppCompatActivity implements DialogInterface.OnClickL
     @Override
     public void onClick(DialogInterface dialogInterface, int i) {
         if (i==DialogInterface.BUTTON_POSITIVE){
-        }else if (i==DialogInterface.BUTTON_NEUTRAL){
-            player.release();
-            Intent it1=new Intent(this,MainActivity.class);
-            startActivity(it1);
         }else if(i==DialogInterface.BUTTON_NEGATIVE){
             player.release();
-            Intent it1=new Intent(this,game2.class);
-            startActivity(it1);
+            //Intent it1=new Intent(this,game2.class);
+            //startActivity(it1);
+            getIntent().setClass(game3.this,game2.class);
+            Intent it=new Intent(getApplication(),game2.class);
+            //it.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+             it.putExtra("GO2",true);
+            startActivity(it);
         }
     }
 
@@ -114,13 +114,6 @@ public class game3 extends AppCompatActivity implements DialogInterface.OnClickL
             it1.putExtra("分數",data4);
             startActivity(it1);
         }
-    }
-    public void goback(View v){
-        clickB = MediaPlayer.create(this,R.raw.click);
-        clickB.start();
-        player.release();
-        Intent it1 = new Intent(this, MainActivity.class);
-        startActivity(it1);
     }
     public void giveup(View view){
         clickB = MediaPlayer.create(this,R.raw.click);

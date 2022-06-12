@@ -17,13 +17,14 @@ public class game2 extends AppCompatActivity implements DialogInterface.OnClickL
     private GlobalClass gv;
     MediaPlayer player,clickB,clickC;
     TextView txv,point2;
+    boolean m=true;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game2);
         gv = (GlobalClass)getApplicationContext();
-        player = gv.getPlayer();
-        player.start();
+        //player = gv.getPlayer();
+        //player.start();
         txv = findViewById(R.id.textView3);
         point2=findViewById(R.id.point2);
         int[] image = {R.id.i1, R.id.i2, R.id.i3, R.id.i4, R.id.i5, R.id.i6,
@@ -34,6 +35,15 @@ public class game2 extends AppCompatActivity implements DialogInterface.OnClickL
         Intent it=getIntent();
         String data=it.getStringExtra("分數");
         point2.setText(data);
+        if (getIntent().getBooleanExtra("GO2",false)){
+            m = false;
+            player = MediaPlayer.create(this,R.raw.game);
+            player.start();
+        }
+        if(m == true){
+            player = gv.getPlayer();
+            player.start();
+        }
 
         new AlertDialog.Builder(this)
                 .setMessage("這關可以點擊物件會讓物件消失，接著來找出要找的東西吧!")
@@ -41,7 +51,7 @@ public class game2 extends AppCompatActivity implements DialogInterface.OnClickL
                 .setTitle("歡迎來到第二關！")
                 .setIcon(android.R.drawable.btn_star_big_off)
                 .setPositiveButton("準備好了", this)
-                .setNeutralButton("回到遊戲主頁", this)
+
                 .setNegativeButton("回到上一個遊戲 ",this)
                 .show();
 
@@ -52,11 +62,7 @@ public class game2 extends AppCompatActivity implements DialogInterface.OnClickL
 
         if (i == DialogInterface.BUTTON_POSITIVE) {
 
-        } else if (i == DialogInterface.BUTTON_NEUTRAL) {
-            player.release();
-            Intent it1 = new Intent(this, MainActivity.class);
-            startActivity(it1);
-        }else if(i==DialogInterface.BUTTON_NEGATIVE) {
+        } else if(i==DialogInterface.BUTTON_NEGATIVE) {
             player.release();
             Intent it1 = new Intent(this, game1.class);
             startActivity(it1);
@@ -106,13 +112,7 @@ public class game2 extends AppCompatActivity implements DialogInterface.OnClickL
             startActivity(it1);
         }
     }
-    public void goback(View view){
-        clickB = MediaPlayer.create(this,R.raw.click);
-        clickB.start();
-        player.release();
-        Intent it1=new Intent(this,MainActivity.class);
-        startActivity(it1);
-    }
+
     public void giveup(View view){
         clickB = MediaPlayer.create(this,R.raw.click);
         clickB.start();

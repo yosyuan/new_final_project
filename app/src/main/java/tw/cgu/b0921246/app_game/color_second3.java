@@ -27,7 +27,7 @@ public class color_second3 extends AppCompatActivity implements SensorEventListe
     Sensor psr3, gsr3;
     View layout3;
     Button confirm3, next3,giveup3;
-    TextView txv3, end3;
+    TextView txv3, end3,cule;
     int count3 = 0;
     String correct3 = "黃紅藍綠粉";
     int sum4;
@@ -47,6 +47,7 @@ public class color_second3 extends AppCompatActivity implements SensorEventListe
         next3 = findViewById(R.id.next3);
         answer3 = findViewById(R.id.answer3);
         giveup3=findViewById(R.id.giveup3);
+        cule=findViewById(R.id.textView20);
 
         sm3 = (SensorManager) getSystemService(SENSOR_SERVICE);
         psr3 = sm3.getDefaultSensor(Sensor.TYPE_PROXIMITY);  //接近感測器
@@ -58,10 +59,10 @@ public class color_second3 extends AppCompatActivity implements SensorEventListe
         int end33=it5.getIntExtra("分數2",0);
         sum4=end33;
 
-        new CountDownTimer(5000, 4000) {
+        new CountDownTimer(6000, 1000) {
 
             public void onTick(long millisUntilFinished) {
-                txv3.setText("倒數 " + millisUntilFinished / 3000 + "秒");
+                txv3.setText("倒數 " + millisUntilFinished / 1000 + "秒");
             }
 
             public void onFinish() {
@@ -70,6 +71,7 @@ public class color_second3 extends AppCompatActivity implements SensorEventListe
                 confirm3.setVisibility(View.VISIBLE);
                 answer3.setVisibility(View.VISIBLE);
                 end3.setVisibility(View.VISIBLE);
+                cule.setVisibility(View.GONE);
                 layout3.setBackgroundResource((R.drawable.bgr));
 
             }
@@ -79,14 +81,14 @@ public class color_second3 extends AppCompatActivity implements SensorEventListe
         @Override
         public void onSensorChanged(SensorEvent event) {
 
-            if (event.values[2] > 0.5f) {
+            if (event.values[2] > 0.3f) {
                 if (count3 == 0) {
                     layout3.setBackgroundColor(Color.BLUE);   //左
                 } else if (count3 == 1) {
                     layout3.setBackgroundColor(Color.WHITE);
 
                 }
-            } else if (event.values[2] < -0.5f) {
+            } else if (event.values[2] < -0.3f) {
                 if (count3 == 0) {
                     layout3.setBackgroundColor(Color.YELLOW);   //右
                 } else if (count3 == 1) {
@@ -174,17 +176,17 @@ public class color_second3 extends AppCompatActivity implements SensorEventListe
         clickB.start();
         gv = (GlobalClass)getApplicationContext();
         gv.setPlayer(player);
-        int score3=0;
+        //int score3=0;
         Intent it6=new Intent(this,color_finalscore.class);
         it6.putExtra("分數3",sum4);
         startActivity(it6);
 
 //new一個Bundle物件，並將要傳遞的資料傳入
-        Bundle bundle3 = new Bundle();
-        bundle3.putInt("分數3",score3);//傳遞Double
+        //Bundle bundle3 = new Bundle();
+        //bundle3.putInt("分數3",score3);//傳遞Double
 //將Bundle物件傳給intent
-        it6.putExtras(bundle3);
-        startActivity(it6);
+        //it6.putExtras(bundle3);
+        //startActivity(it6);
 
     }
 
@@ -214,7 +216,7 @@ public class color_second3 extends AppCompatActivity implements SensorEventListe
         else if (event.getAction() == MotionEvent.ACTION_UP) {
             layout3.setBackgroundColor(Color.WHITE);
         }
-        return false;
+        return true;
 
     }
 
