@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
     }
     public void tryknowedge(View v){
 
-        Intent it1=new Intent(this,knowledge.class);
+        Intent it1=new Intent(this,color.class);
         startActivity(it1);
     }
     public void trycolor(View v){

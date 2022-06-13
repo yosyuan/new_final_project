@@ -69,8 +69,8 @@
 
     <TextView
         android:id="@+id/rule"
-        android:layout_width="266dp"
-        android:layout_height="149dp"
+        android:layout_width="288dp"
+        android:layout_height="156dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="32dp"
         android:background="#EFCD9A"

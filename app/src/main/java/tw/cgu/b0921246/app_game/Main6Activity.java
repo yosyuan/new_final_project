@@ -30,13 +30,13 @@ public class Main6Activity extends AppCompatActivity  {
         i1=findViewById(R.id.pudding);
         i2=findViewById(R.id.browine);
         i3=findViewById(R.id.pie);
-        if (p==0||p==20){
+        if (p<60){
             dialogue.setText("廚師：今天為你們獻上的甜點是\"低級QQ布丁\"！");
             i1.setVisibility(View.VISIBLE);}
-        else if(p==40||p==60){
+        else if(p>=60&&p<90){
             dialogue.setText("廚師：今天為你們獻上的甜點是\"頂級榛果脆片布朗尼\"！");
             i2.setVisibility(View.VISIBLE);}
-        else if(p==80||p==100){
+        else if(p>=90&&p<=100){
             dialogue.setText("廚師：今天為你們獻上的甜點是\"究極蜂橙莓果千層派\"！");
             i3.setVisibility(View.VISIBLE);}
 

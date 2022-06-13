@@ -24,7 +24,7 @@ public class bet extends AppCompatActivity implements View.OnClickListener {
         single.setOnClickListener(this);
 
         TextView rule=findViewById(R.id.rule);
-        rule.setText("遊戲說明:\n\n您擁有本金500元，遊玩以下2關遊戲，使您的本金皆達到2000元，即為過關");  //顯示遊戲規則
+        rule.setText("遊戲說明:\n\n您擁有本金500元，請先遊玩比大小，使本金達到2000元\n再玩猜密碼，在限定次數內成功猜出密碼\n即為過關");  //顯示遊戲規則
     }
     public void gofinish(View v){     //結束遊戲
         clickB = MediaPlayer.create(this,R.raw.click);

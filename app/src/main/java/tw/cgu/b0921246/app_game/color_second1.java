@@ -14,12 +14,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class color_second1 extends AppCompatActivity implements SensorEventListener {
     private GlobalClass gv;
     MediaPlayer player,clickB,C;
+
     SensorManager sm;
     EditText answer;
     Sensor psr, gsr;
@@ -33,10 +35,13 @@ public class color_second1 extends AppCompatActivity implements SensorEventListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_color_second1);
+
         gv = (GlobalClass)getApplicationContext();
         player = gv.getPlayer();
         player.start();
+
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
+
         layout = findViewById(R.id.layout);
         txv =findViewById(R.id.txv);
         end=findViewById(R.id.end);
@@ -50,6 +55,10 @@ public class color_second1 extends AppCompatActivity implements SensorEventListe
         psr = sm.getDefaultSensor(Sensor.TYPE_PROXIMITY);  //接近感測器
 
         gsr = sm.getDefaultSensor(Sensor.TYPE_GYROSCOPE);  //陀螺儀
+        if (psr == null) {
+            Toast.makeText(this, "接近傳感器不可用", Toast.LENGTH_LONG).show();
+            finish(); // Close app
+        }
 
 
 
@@ -130,11 +139,13 @@ public class color_second1 extends AppCompatActivity implements SensorEventListe
                 .SENSOR_DELAY_NORMAL);
         sm.registerListener(proximitySensorListener, psr, 2 * 1000 * 1000);
 
+        //sm.unregisterListener(proximitySensorListener);
     }
 
     protected void onPause() {
         color_second1.super.onPause();
-        sm.unregisterListener(this);
+        //sm.unregisterListener(this);
+        sm.unregisterListener(proximitySensorListener);
     }
 
     @Override

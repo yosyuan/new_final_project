@@ -1,5 +1,6 @@
 package tw.cgu.b0921246.app_game;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.media.MediaPlayer;
@@ -14,9 +15,10 @@ import android.widget.Toast;
 
 import java.util.Random;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class knowledge extends AppCompatActivity implements AdapterView.OnItemClickListener {
+public class knowledge extends AppCompatActivity implements DialogInterface.OnClickListener,AdapterView.OnItemClickListener {
 
     private GlobalClass gv;
     MediaPlayer player,clickB,C;
@@ -87,10 +89,10 @@ public class knowledge extends AppCompatActivity implements AdapterView.OnItemCl
     TextView s, q, txvp;
     Button next;
     Random x = new Random();
-    int n =x.nextInt(5); //0~4
-    int a=0;
-    static int points=0;
-    int c;
+    //int n =x.nextInt(5); //0~4
+    int a=0,points=0,c;
+    boolean b=false;
+    int[] used;
     //  String p= Integer.toString(points);
     Toast sbar;
     ListView lv;
@@ -107,13 +109,33 @@ public class knowledge extends AppCompatActivity implements AdapterView.OnItemCl
         txvp=(TextView) findViewById(R.id.txvp);
         s.setTextColor(Color.rgb(166,106,177));
         txvp.setTextColor(Color.rgb(0,127,172));
+        int m =x.nextInt(5);
         s.setText(subjects[a]);
-        q.setText(questions[a][n]);
-        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,answers[a][n]);
+        q.setText(questions[a][m]);
+        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,answers[a][m]);
         lv = (ListView) findViewById(R.id.lv);
         lv.setAdapter(adapter);
         lv.setOnItemClickListener(this);
+        c=m;
+        used = new int[5];
+        used[0]=m;
         sbar=Toast.makeText(this,"",Toast.LENGTH_SHORT);
+        new AlertDialog.Builder(this)
+                .setMessage("在這個關卡裡面會有十題選擇題，五種題型，答對一題就能獲得10分，加油！")
+                .setCancelable(false)
+                .setTitle("歡迎來到智慧王關卡")
+                .setPositiveButton("開始挑戰!",this)
+                .setNeutralButton("",null)
+                .setNegativeButton(" ",null)
+                .show();
+        /*new AlertDialog.Builder(this)
+                .setIcon(R.drawable.bulb_icon)
+                .setTitle("歡迎來到智慧王關卡")
+                .setMessage("在這個關卡裡面會有十題選擇題，五種題型，答對一題就能獲得10分，加油！")
+                .setPositiveButton("開始挑戰!", (DialogInterface.OnClickListener) this)
+                .show();*/
+
+
 
         //sbar = Snackbar.make (findViewById(R.id.root),"",Snackbar.LENGTH_SHORT);
 
@@ -122,7 +144,7 @@ public class knowledge extends AppCompatActivity implements AdapterView.OnItemCl
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
-        if ((a==0&&((n == 0 && i == 2) || (n == 1 && i == 0) || (n == 2 && i == 1) || (n == 3 && i == 2) || (n == 4 && i == 0)))||
+        if ((a==0&&((c == 0 && i == 2) || (c == 1 && i == 0) || (c == 2 && i == 1) || (c == 3 && i == 2) || (c == 4 && i == 0)))||
                 (a==1&&((c == 0 && i == 1) || (c == 1 && i == 0) || (c == 2 && i == 2) || (c == 3 && i == 2) || (c == 4 && i == 1)))||
                 (a==2&&((c == 0 && i == 0) || (c == 1 && i == 0) || (c == 2 && i == 1) || (c == 3 && i == 1) || (c == 4 && i == 2)))||
                 (a==3&&((c == 0 && i == 1) || (c == 1 && i == 2) || (c == 2 && i == 1) || (c == 3 && i == 0) || (c == 4 && i == 2)))||
@@ -130,7 +152,7 @@ public class knowledge extends AppCompatActivity implements AdapterView.OnItemCl
             C = MediaPlayer.create(this,R.raw.correct);
             C.start(); sbar.setText("答對了！");
             sbar.show();
-            points+=20;
+            points+=10;
             String p= Integer.toString(points);
             txvp.setText("分數："+p);
 
@@ -143,6 +165,34 @@ public class knowledge extends AppCompatActivity implements AdapterView.OnItemCl
         }
         a+=1;
         if(a<=4){
+            int m =x.nextInt(5);
+            if(b==false){
+                used[a]=m;
+            }else{
+                do{
+                    m =x.nextInt(5);}
+                while (m==used[a]);
+            }
+            s.setText(subjects[a]);
+            q.setText(questions[a][m]);
+            adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,answers[a][m]);
+            lv.setAdapter(adapter);
+            c=m;
+        }
+        else if(b==false&&a==5){
+            a=0;
+            b=true;
+            s.setText(subjects[a]);
+            int m =x.nextInt(5);
+            q.setText(questions[a][m]);
+            adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,answers[a][m]);
+            lv.setAdapter(adapter);
+            c=m;
+        }
+        else if(b==true&&a==5)
+            next.setVisibility(View.VISIBLE);
+        /*
+        if(a<=4){
             s.setText(subjects[a]);
             int m =x.nextInt(5);
             q.setText(questions[a][m]);
@@ -151,7 +201,7 @@ public class knowledge extends AppCompatActivity implements AdapterView.OnItemCl
             c=m;
         }
         else
-            next.setVisibility(View.VISIBLE);
+            next.setVisibility(View.VISIBLE);*/
     }
 
     public void nextpage(View v){
@@ -168,5 +218,10 @@ public class knowledge extends AppCompatActivity implements AdapterView.OnItemCl
         startActivity(it1);
         /*String data6=Integer.toString(points);
         it1.putExtra("分數",data6);*/
+    }
+
+    @Override
+    public void onClick(DialogInterface dialog, int which) {
+
     }
 }
