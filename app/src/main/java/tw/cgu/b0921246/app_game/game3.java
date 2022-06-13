@@ -88,17 +88,7 @@ public class game3 extends AppCompatActivity implements DialogInterface.OnClickL
             visible = View.GONE;
             findViewById(R.id.ii9).setVisibility(visible);
         } else if (view.getId() == R.id.ii11) {
-            //Intent it1 = new Intent(this, game2.class);
-            //startActivity(it1);
-            //return;            new AlertDialog.Builder(this)
-            //                    .setMessage("獲得分數100分")
-            //                    .setCancelable(false)
-            //                    .setTitle("恭喜你完成這些關卡！")
-            //                    .setIcon(android.R.drawable.btn_star_big_off)
-            //                    .setPositiveButton("準備好了", this)
-            //                    .setNeutralButton("回到遊戲主頁", this)
-            //                    .setNegativeButton("回到上一個遊戲 ",this)
-            //                    .show();
+
             clickC = MediaPlayer.create(this,R.raw.correct2);
             clickC.start();
             gv = (GlobalClass)getApplicationContext();

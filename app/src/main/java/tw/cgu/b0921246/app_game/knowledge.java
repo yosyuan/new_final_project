@@ -120,20 +120,20 @@ public class knowledge extends AppCompatActivity implements DialogInterface.OnCl
         used = new int[5];
         used[0]=m;
         sbar=Toast.makeText(this,"",Toast.LENGTH_SHORT);
-        new AlertDialog.Builder(this)
+       /* new AlertDialog.Builder(this)
                 .setMessage("在這個關卡裡面會有十題選擇題，五種題型，答對一題就能獲得10分，加油！")
                 .setCancelable(false)
                 .setTitle("歡迎來到智慧王關卡")
                 .setPositiveButton("開始挑戰!",this)
                 .setNeutralButton("",null)
                 .setNegativeButton(" ",null)
-                .show();
-        /*new AlertDialog.Builder(this)
-                .setIcon(R.drawable.bulb_icon)
+                .show();*/
+        new AlertDialog.Builder(this)
+                .setIcon(R.drawable.bulb3)
                 .setTitle("歡迎來到智慧王關卡")
                 .setMessage("在這個關卡裡面會有十題選擇題，五種題型，答對一題就能獲得10分，加油！")
                 .setPositiveButton("開始挑戰!", (DialogInterface.OnClickListener) this)
-                .show();*/
+                .show();
 
 
 

@@ -45,7 +45,7 @@ public class Main7Activity extends AppCompatActivity {
             t+=1;
         }
         else if(t==1){
-            dialogue.setText("奇怪阿姨：如果你得分越高就可以獲得越好的獎品喔~獎品都是我們花很多時間設計出來的作品！玩一次只要付三百塊喔~");
+            dialogue.setText("奇怪阿姨：玩完就可以獲得很棒的獎品喔~獎品都是我們花很多時間設計出來的作品！玩一次只要付三百塊喔~");
             t+=1;
             btn.setText("前往下一關");
         }

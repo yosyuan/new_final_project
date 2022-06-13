@@ -23,8 +23,8 @@ public class game2 extends AppCompatActivity implements DialogInterface.OnClickL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game2);
         gv = (GlobalClass)getApplicationContext();
-        //player = gv.getPlayer();
-        //player.start();
+        player = gv.getPlayer();
+        player.start();
         txv = findViewById(R.id.textView3);
         point2=findViewById(R.id.point2);
         int[] image = {R.id.i1, R.id.i2, R.id.i3, R.id.i4, R.id.i5, R.id.i6,
@@ -32,18 +32,10 @@ public class game2 extends AppCompatActivity implements DialogInterface.OnClickL
         for (int imageview : image) {
             findViewById(imageview).setOnClickListener(this);
         }
+
         Intent it=getIntent();
         String data=it.getStringExtra("分數");
         point2.setText(data);
-        if (getIntent().getBooleanExtra("GO2",false)){
-            m = false;
-            player = MediaPlayer.create(this,R.raw.game);
-            player.start();
-        }
-        if(m == true){
-            player = gv.getPlayer();
-            player.start();
-        }
 
         new AlertDialog.Builder(this)
                 .setMessage("這關可以點擊物件會讓物件消失，接著來找出要找的東西吧!")
@@ -51,7 +43,6 @@ public class game2 extends AppCompatActivity implements DialogInterface.OnClickL
                 .setTitle("歡迎來到第二關！")
                 .setIcon(android.R.drawable.btn_star_big_off)
                 .setPositiveButton("準備好了", this)
-
                 .setNegativeButton("回到上一個遊戲 ",this)
                 .show();
 
@@ -129,3 +120,12 @@ public class game2 extends AppCompatActivity implements DialogInterface.OnClickL
         startActivity(it1);
     }
 }
+        /*if (getIntent().getBooleanExtra("GO2",false)){
+            m = false;
+            player = MediaPlayer.create(this,R.raw.game);
+            player.start();
+        }
+        if(m == true){
+            player = gv.getPlayer();
+            player.start();
+        }*/
