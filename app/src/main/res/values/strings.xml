@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">app_game</string>
+    <string name="app_name">健達出奇蛋</string>
     <string-array name="bbigor">
         <item>比大</item>
         <item>比小</item>

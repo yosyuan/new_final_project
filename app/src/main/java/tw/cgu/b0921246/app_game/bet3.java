@@ -24,6 +24,8 @@ public class bet3 extends AppCompatActivity implements TextWatcher, View.OnClick
     Toast tos1;
     Button guess,go;
     EditText edt;
+    String[] sml={"太小了喔~","再猜大一點的數字!","咦~數字不夠大欸","快成功了!再高一點","再增加一點!!"};
+    String[] bigg={"太大了餒~","再猜小一點的數字試試看!","哎呀~數字超過了欸","快成功了!再小一點","咦~數字太大囉"};
 
     int time=7,points=100;
     Random y = new Random();
@@ -106,15 +108,19 @@ public class bet3 extends AppCompatActivity implements TextWatcher, View.OnClick
             } else if (time > 1) {
                 C = MediaPlayer.create(this,R.raw.incorrect2);
                 C.start();
+                Random z = new Random();
+                int wordtex = z.nextInt(4);
                 if (pass != input) {
                     time = time - 1;
                     rest.setText("剩餘次數: "+time+"次");
                     points-=10;
                     if (pass > input) {
-                        show.setText(input+" 這個數字太小囉~ \n");
+                        show.setText( show.getText().toString()+input  +  sml[wordtex]+"\n");
+                        //show.setText(input+" 這個數字太小囉~ \n");
                     }
                     if (pass < input) {
-                        show.setText(input+" 這個數字太大囉~ \n");
+                        show.setText( show.getText().toString()+input  +  bigg[wordtex]+"\n");
+                        //show.setText(input+" 這個數字太大囉~ \n");
                     }
                 }
                 else if (pass == input) {

@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
     }
     public void trybet(View v){
 
-        Intent it1=new Intent(this,Main8Activity.class);
+        Intent it1=new Intent(this,bet.class);
         startActivity(it1);
     }
     public void tryguess(View v){
